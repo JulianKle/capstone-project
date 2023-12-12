@@ -115,8 +115,6 @@ export default function Formular({ handleNewAssessment }) {
     noneAboveApplies: false,
   });
 
-  const [anyCheckboxChecked, setAnyCheckboxChecked] = useState(false);
-
   function handleInputChange(event) {
     const { name, value, type, checked } = event.target;
     const inputValue = type === "checkbox" ? checked : value;
