@@ -26,10 +26,23 @@ const StyledContent = styled.div`
   padding-bottom: 2rem; /* Ändere die Höhe nach Bedarf, um Platz für den Footer zu schaffen */
 `;
 
+const StyledMessage = styled.p`
+  font-size: 24px;
+  color: #282c34; /* Dunklere Schriftfarbe */
+  text-align: center; /* Zentrierte Ausrichtung */
+  margin-top: 20px;
+`;
+
 export default function HomePage({ assessments }) {
   return (
     <StyledContent>
-      <AssessmentList assessments={assessments} />
+      {assessments.length > 0 ? (
+        <AssessmentList assessments={assessments} />
+      ) : (
+        <StyledMessage>
+          Please add Assessment via the Add New Assessment button.
+        </StyledMessage>
+      )}
       <StyledLink href="/form">Add New Assessment</StyledLink>
     </StyledContent>
   );
