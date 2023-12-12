@@ -22,8 +22,8 @@ const StyledLink = styled(Link)`
 `;
 
 const StyledContent = styled.div`
-  padding-top: 1.5cm; /* Abstand zum Header */
-  padding-bottom: 2rem; /* Ändere die Höhe nach Bedarf, um Platz für den Footer zu schaffen */
+  padding-top: 1.5cm;
+  padding-bottom: 2rem;
 `;
 
 const StyledMessage = styled.p`
