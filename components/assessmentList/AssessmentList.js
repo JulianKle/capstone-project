@@ -68,7 +68,7 @@ function getColorCode(assessment) {
 }
 
 export function AssessmentList() {
-  if (!assessments || assessments.length === 0) {
+  if (!assessments?.length === 0) {
     return <p>Es sind keine Daten verfügbar.</p>;
   }
 
