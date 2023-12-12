@@ -1,7 +1,6 @@
 // Card.js
 import React from "react";
 import styled from "styled-components";
-import assessments from "@/lib/data/data";
 
 export const CardSection = styled.section`
   display: flex;
@@ -67,16 +66,16 @@ function getColorCode(assessment) {
   }
 }
 
-export function AssessmentList() {
+export function AssessmentList({ assessments }) {
   if (!assessments?.length === 0) {
-    return <p>Es sind keine Daten verfügbar.</p>;
+    return <p>Bitte Assessments hinzufügen.</p>;
   }
 
   return (
     <>
       {assessments.map((assessment) => (
         <CardSection
-          key={assessment._id}
+          key={assessment.id}
           style={{ backgroundColor: getColorCode(assessment) }}
         >
           <h3>{assessment.title}</h3>
