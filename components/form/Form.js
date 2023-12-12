@@ -98,6 +98,14 @@ const SubmitButton = styled.button`
   }
 `;
 
+const SubmitErrorMessage = styled.p`
+  font-size: 20px;
+  color: red;
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+`;
+
 export default function Formular({ handleNewAssessment }) {
   const router = useRouter();
 
@@ -286,9 +294,9 @@ export default function Formular({ handleNewAssessment }) {
       formData.noneAboveApplies ? (
         <SubmitButton type="submit">Submit</SubmitButton>
       ) : (
-        <p style={{ color: "red" }}>
+        <SubmitErrorMessage>
           Please select applicable checkbox(es) to submit form.
-        </p>
+        </SubmitErrorMessage>
       )}
     </StyledForm>
   );
