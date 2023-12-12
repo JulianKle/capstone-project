@@ -115,6 +115,8 @@ export default function Formular({ handleNewAssessment }) {
     noneAboveApplies: false,
   });
 
+  const [anyCheckboxChecked, setAnyCheckboxChecked] = useState(false);
+
   function handleInputChange(event) {
     const { name, value, type, checked } = event.target;
     const inputValue = type === "checkbox" ? checked : value;
@@ -148,6 +150,7 @@ export default function Formular({ handleNewAssessment }) {
           name="title"
           value={formData.title}
           onChange={handleInputChange}
+          required
         />
       </FormField>
       <FormField>
@@ -276,7 +279,19 @@ export default function Formular({ handleNewAssessment }) {
         </article>
       </FormField>
 
-      <SubmitButton type="submit">Submit</SubmitButton>
+      {formData.cognitiveBehavior ||
+      formData.socialScoring ||
+      formData.biometricIdentification ||
+      formData.useUnderSafetyRegulation ||
+      formData.useInCertainArea ||
+      formData.useGenAI ||
+      formData.noneAboveApplies ? (
+        <SubmitButton type="submit">Submit</SubmitButton>
+      ) : (
+        <p style={{ color: "red" }}>
+          Please select applicable checkbox(es) to submit form.
+        </p>
+      )}
     </StyledForm>
   );
 }
