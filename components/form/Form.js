@@ -116,17 +116,12 @@ export default function Formular({ handleNewAssessment }) {
   });
 
   function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  }
+    const { name, value, type, checked } = event.target;
+    const inputValue = type === "checkbox" ? checked : value;
 
-  function handleCheckboxChange(checkboxName) {
     setFormData({
       ...formData,
-      [checkboxName]: !formData[checkboxName],
+      [name]: inputValue,
     });
   }
 
@@ -141,6 +136,8 @@ export default function Formular({ handleNewAssessment }) {
 
     router.push("/");
   }
+
+  console.log(formData);
 
   return (
     <StyledForm onSubmit={handleSubmit}>
@@ -193,7 +190,7 @@ export default function Formular({ handleNewAssessment }) {
             name="cognitiveBehavior"
             type="checkbox"
             checked={formData.cognitiveBehavior}
-            onChange={() => handleCheckboxChange("cognitiveBehavior")}
+            onChange={handleInputChange}
           />
           <label htmlFor="socialScoring">
             Is the system able to classify people on the basis of behavior,
@@ -204,7 +201,7 @@ export default function Formular({ handleNewAssessment }) {
             name="socialScoring"
             type="checkbox"
             checked={formData.socialScoring}
-            onChange={() => handleCheckboxChange("socialScoring")}
+            onChange={handleInputChange}
           />
           <label htmlFor="biometricIdentification">
             Is the system capable of performing real-time remote biometric
@@ -215,7 +212,7 @@ export default function Formular({ handleNewAssessment }) {
             name="biometricIdentification"
             type="checkbox"
             checked={formData.biometricIdentification}
-            onChange={() => handleCheckboxChange("biometricIdentification")}
+            onChange={handleInputChange}
           />
         </article>
 
@@ -231,14 +228,14 @@ export default function Formular({ handleNewAssessment }) {
             name="useUnderSafetyRegulation"
             type="checkbox"
             checked={formData.useUnderSafetyRegulation}
-            onChange={() => handleCheckboxChange("useUnderSafetyRegulation")}
+            onChange={handleInputChange}
           />
           <label htmlFor="useInCertainArea">
             Is the system used in one of the following areas? - Biometric
-            identification and categorization of natural persons; - management
+            identification and categorization of natural persons; - Management
             and operation of critical infrastructure; - Education and training;
             - Employment, management of employees and access to self-employment;
-            - access to and use of essential private and public services and
+            - Access to and use of essential private and public services and
             benefits; - Law enforcement; - Migration, asylum and border control
             management; - Support in the interpretation and application of laws.
           </label>
@@ -247,7 +244,7 @@ export default function Formular({ handleNewAssessment }) {
             name="useInCertainArea"
             type="checkbox"
             checked={formData.useInCertainArea}
-            onChange={() => handleCheckboxChange("useInCertainArea")}
+            onChange={handleInputChange}
           />
         </article>
 
@@ -262,7 +259,7 @@ export default function Formular({ handleNewAssessment }) {
             name="useGenAI"
             type="checkbox"
             checked={formData.useGenAI}
-            onChange={() => handleCheckboxChange("useGenAI")}
+            onChange={handleInputChange}
           />
         </article>
 
@@ -274,7 +271,7 @@ export default function Formular({ handleNewAssessment }) {
             name="noneAboveApplies"
             type="checkbox"
             checked={formData.noneAboveApplies}
-            onChange={() => handleCheckboxChange("noneAboveApplies")}
+            onChange={handleInputChange}
           />
         </article>
       </FormField>
