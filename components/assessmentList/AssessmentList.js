@@ -1,6 +1,7 @@
 // Card.js
 import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
 export const CardSection = styled.section`
   display: flex;
@@ -66,7 +67,7 @@ function getColorCode(assessment) {
   }
 }
 
-export function AssessmentList({ assessments }) {
+export function AssessmentList({ assessments, onEditAssessment }) {
   if (!assessments?.length === 0) {
     return <p>Bitte Assessments hinzufügen.</p>;
   }
@@ -98,6 +99,11 @@ export function AssessmentList({ assessments }) {
               obligations.
             </p>
           ) : null}
+          <Link href="/form">
+            <button onClick={() => onEditAssessment(assessment.id)}>
+              Edit
+            </button>
+          </Link>
         </CardSection>
       ))}
     </>

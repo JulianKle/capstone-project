@@ -106,21 +106,21 @@ const SubmitErrorMessage = styled.p`
   width: 100%;
 `;
 
-export default function Formular({ handleNewAssessment }) {
+export default function Formular({ handleAssessmentOperation, defaultData }) {
   const router = useRouter();
 
   const [formData, setFormData] = useState({
-    title: "",
-    editor: "",
-    company: "",
-    status: "",
-    cognitiveBehavior: false,
-    socialScoring: false,
-    biometricIdentification: false,
-    useUnderSafetyRegulation: false,
-    useInCertainArea: false,
-    useGenAI: false,
-    noneAboveApplies: false,
+    title: defaultData?.title || "",
+    editor: defaultData?.editor || "",
+    company: defaultData?.company || "",
+    status: defaultData?.status || "",
+    cognitiveBehavior: defaultData?.cognitiveBehavior || false,
+    socialScoring: defaultData?.socialScoring || false,
+    biometricIdentification: defaultData?.biometricIdentification || false,
+    useUnderSafetyRegulation: defaultData?.useUnderSafetyRegulation || false,
+    useInCertainArea: defaultData?.useInCertainArea || false,
+    useGenAI: defaultData?.useGenAI || false,
+    noneAboveApplies: defaultData?.noneAboveApplies || false,
   });
 
   function handleInputChange(event) {
@@ -140,7 +140,7 @@ export default function Formular({ handleNewAssessment }) {
       ...formData,
     };
 
-    handleNewAssessment(updatedData);
+    handleAssessmentOperation(updatedData);
 
     router.push("/");
   }
