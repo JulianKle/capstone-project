@@ -1,6 +1,51 @@
-import { AssessmentList } from "@/components/assessmentList/AssessmentList";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Link from "next/link";
+import { AssessmentList } from "@/components/assessmentList/AssessmentList";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const BackgroundAnimation = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #61dafb, #38a169);
+  z-index: -1;
+  animation: ${fadeIn} 1s ease-in-out;
+`;
+
+const StyledContentWithAssessments = styled.div`
+  position: relative;
+  padding-top: 2rem;
+  text-align: center;
+  z-index: 1;
+`;
+
+const StyledContentWithoutAssessments = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+  z-index: 1;
+`;
+
+const StyledMessage = styled.p`
+  font-size: 24px;
+  color: #282c34;
+  margin-top: 20px;
+`;
 
 const StyledLink = styled(Link)`
   position: fixed;
@@ -21,32 +66,33 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const StyledContent = styled.div`
-  padding-top: 1.5cm;
-  padding-bottom: 2rem;
-`;
-
-const StyledMessage = styled.p`
-  font-size: 24px;
-  color: #282c34; /* Dunklere Schriftfarbe */
-  text-align: center; /* Zentrierte Ausrichtung */
-  margin-top: 20px;
-`;
-
-export default function HomePage({ assessments, handleEditAssessment }) {
+export default function HomePage({
+  assessments,
+  handleEditAssessment,
+  handleDeleteAssessment,
+}) {
   return (
-    <StyledContent>
+    <>
+      {assessments.length === 0 && <BackgroundAnimation />}
       {assessments.length > 0 ? (
-        <AssessmentList
-          assessments={assessments}
-          onEditAssessment={handleEditAssessment}
-        />
+        <StyledContentWithAssessments>
+          <AssessmentList
+            assessments={assessments}
+            onEditAssessment={handleEditAssessment}
+            onDeleteAssessment={handleDeleteAssessment}
+          />
+        </StyledContentWithAssessments>
       ) : (
-        <StyledMessage>
-          Please add Assessment via the Add New Assessment button.
-        </StyledMessage>
+        <StyledContentWithoutAssessments>
+          <>
+            <StyledMessage>
+              Please add a new assessment using the button below in the right
+              corner.
+            </StyledMessage>
+          </>
+        </StyledContentWithoutAssessments>
       )}
       <StyledLink href="/form">Add New Assessment</StyledLink>
-    </StyledContent>
+    </>
   );
 }

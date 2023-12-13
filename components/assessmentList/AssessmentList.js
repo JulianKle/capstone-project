@@ -67,7 +67,11 @@ function getColorCode(assessment) {
   }
 }
 
-export function AssessmentList({ assessments, onEditAssessment }) {
+export function AssessmentList({
+  assessments,
+  onEditAssessment,
+  onDeleteAssessment,
+}) {
   if (!assessments?.length === 0) {
     return <p>Bitte Assessments hinzufügen.</p>;
   }
@@ -104,6 +108,10 @@ export function AssessmentList({ assessments, onEditAssessment }) {
               Edit
             </button>
           </Link>
+
+          <button onClick={() => onDeleteAssessment(assessment.id)}>
+            Delete
+          </button>
         </CardSection>
       ))}
     </>
