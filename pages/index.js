@@ -1,6 +1,12 @@
 import styled, { keyframes } from "styled-components";
 import Link from "next/link";
 import { AssessmentList } from "@/components/assessmentList/AssessmentList";
+import { SearchAssessment } from "@/components/searchAssessment/SearchAssessment";
+
+const StyledContent = styled.div`
+  padding-top: 1.5cm; /* Abstand zum Header */
+  padding-bottom: 2rem; /* Ändere die Höhe nach Bedarf, um Platz für den Footer zu schaffen */
+`;
 
 const fadeIn = keyframes`
   from {
@@ -49,9 +55,9 @@ const StyledMessage = styled.p`
 
 const StyledLink = styled(Link)`
   position: fixed;
-  bottom: 80px; /* Verhindere, dass der Button den Footer überlappt */
-  right: 20px;
-  padding: 8px 12px;
+  bottom: 70px; /* Verhindere, dass der Button den Footer überlappt */
+  right: 5px;
+  padding: 8px 4px;
   font-size: 16px;
   background-color: #61dafb;
   color: #282c34;
@@ -70,29 +76,51 @@ export default function HomePage({
   assessments,
   handleEditAssessment,
   handleDeleteAssessment,
+  filterAssessment,
+  filteredAssessment,
+  filterNoYes,
+  noFilterFalse,
+  noFilterTrue,
 }) {
   return (
     <>
-      {assessments.length === 0 && <BackgroundAnimation />}
-      {assessments.length > 0 ? (
-        <StyledContentWithAssessments>
-          <AssessmentList
-            assessments={assessments}
-            onEditAssessment={handleEditAssessment}
-            onDeleteAssessment={handleDeleteAssessment}
-          />
-        </StyledContentWithAssessments>
-      ) : (
-        <StyledContentWithoutAssessments>
+      <StyledContent>
+        {assessments.length === 0 && <BackgroundAnimation />}
+        {assessments.length > 0 ? (
           <>
-            <StyledMessage>
-              Please add a new assessment using the button below in the right
-              corner.
-            </StyledMessage>
+            <SearchAssessment
+              onFilter={filterAssessment}
+              onSearch={noFilterFalse}
+              onOverview={noFilterTrue}
+            />
+            <StyledContentWithAssessments>
+              {filterNoYes ? (
+                <AssessmentList
+                  assessments={assessments}
+                  onEditAssessment={handleEditAssessment}
+                  onDeleteAssessment={handleDeleteAssessment}
+                />
+              ) : (
+                <AssessmentList
+                  assessments={filteredAssessment}
+                  onEditAssessment={handleEditAssessment}
+                  onDeleteAssessment={handleDeleteAssessment}
+                />
+              )}
+            </StyledContentWithAssessments>
           </>
-        </StyledContentWithoutAssessments>
-      )}
-      <StyledLink href="/form">Add New Assessment</StyledLink>
+        ) : (
+          <StyledContentWithoutAssessments>
+            <>
+              <StyledMessage>
+                Please add a new assessment using the button below in the right
+                corner.
+              </StyledMessage>
+            </>
+          </StyledContentWithoutAssessments>
+        )}
+        <StyledLink href="/form">Add Assessment</StyledLink>
+      </StyledContent>
     </>
   );
 }
