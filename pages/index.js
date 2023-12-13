@@ -24,7 +24,7 @@ const BackgroundAnimation = styled.div`
 
 const StyledContentWithAssessments = styled.div`
   position: relative;
-  padding: 2rem;
+  padding-top: 2rem;
   text-align: center;
   z-index: 1;
 `;
