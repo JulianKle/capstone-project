@@ -33,11 +33,14 @@ const StyledMessage = styled.p`
   margin-top: 20px;
 `;
 
-export default function HomePage({ assessments }) {
+export default function HomePage({ assessments, handleEditAssessment }) {
   return (
     <StyledContent>
       {assessments.length > 0 ? (
-        <AssessmentList assessments={assessments} />
+        <AssessmentList
+          assessments={assessments}
+          onEditAssessment={handleEditAssessment}
+        />
       ) : (
         <StyledMessage>
           Please add Assessment via the Add New Assessment button.

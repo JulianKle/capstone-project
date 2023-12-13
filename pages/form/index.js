@@ -6,11 +6,23 @@ const StyledContent = styled.div`
   padding-bottom: 1.5cm; /* Ändere die Höhe nach Bedarf, um Platz für den Footer zu schaffen */
 `;
 
-export default function AssessmentForm({ handleNewAssessment }) {
+export default function AssessmentForm({
+  handleNewAssessment,
+  handleUpdateAssessment,
+  editingAssessment,
+}) {
   return (
     <>
       <StyledContent>
-        <Form handleNewAssessment={handleNewAssessment} />
+        {!editingAssessment && (
+          <Form handleNewAssessment={handleNewAssessment} />
+        )}
+        {editingAssessment && (
+          <Form
+            handleNewAssessment={handleUpdateAssessment}
+            defaultData={editingAssessment}
+          />
+        )}
       </StyledContent>
     </>
   );
