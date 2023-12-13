@@ -15,11 +15,11 @@ export default function AssessmentForm({
     <>
       <StyledContent>
         {!editingAssessment && (
-          <Form handleNewAssessment={handleNewAssessment} />
+          <Form handleAssessmentOperation={handleNewAssessment} />
         )}
         {editingAssessment && (
           <Form
-            handleNewAssessment={handleUpdateAssessment}
+            handleAssessmentOperation={handleUpdateAssessment}
             defaultData={editingAssessment}
           />
         )}

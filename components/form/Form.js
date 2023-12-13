@@ -106,7 +106,7 @@ const SubmitErrorMessage = styled.p`
   width: 100%;
 `;
 
-export default function Formular({ handleNewAssessment, defaultData }) {
+export default function Formular({ handleAssessmentOperation, defaultData }) {
   const router = useRouter();
 
   const [formData, setFormData] = useState({
@@ -140,7 +140,7 @@ export default function Formular({ handleNewAssessment, defaultData }) {
       ...formData,
     };
 
-    handleNewAssessment(updatedData);
+    handleAssessmentOperation(updatedData);
 
     router.push("/");
   }
