@@ -8,11 +8,13 @@ export default function App({ Component, pageProps }) {
   const [assessments, setAssessments] = useState([]);
   const [editingAssessment, setEditingAssessment] = useState(null);
 
+  //Assessments erstellen
   function handleNewAssessment(newAssessment) {
     const updatedAssessment = [{ id: uid(), ...newAssessment }, ...assessments];
     setAssessments(updatedAssessment);
   }
 
+  //Assessments editieren
   function handleEditAssessment(id) {
     const assessmentToEdit = assessments.find(
       (assessment) => assessment.id === id
@@ -33,6 +35,15 @@ export default function App({ Component, pageProps }) {
     setAssessments(updatedAssessments);
   }
 
+  //Assesments löschen
+  function handleDeleteAssessment(id) {
+    setAssessments(
+      assessments.filter((assessment) => {
+        return assessment.id !== id;
+      })
+    );
+  }
+
   return (
     <>
       <Header />
@@ -44,6 +55,7 @@ export default function App({ Component, pageProps }) {
         handleEditAssessment={handleEditAssessment}
         handleUpdateAssessment={handleUpdateAssessment}
         editingAssessment={editingAssessment}
+        handleDeleteAssessment={handleDeleteAssessment}
       />
       <Footer />
     </>

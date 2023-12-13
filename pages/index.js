@@ -33,13 +33,18 @@ const StyledMessage = styled.p`
   margin-top: 20px;
 `;
 
-export default function HomePage({ assessments, handleEditAssessment }) {
+export default function HomePage({
+  assessments,
+  handleEditAssessment,
+  handleDeleteAssessment,
+}) {
   return (
     <StyledContent>
       {assessments.length > 0 ? (
         <AssessmentList
           assessments={assessments}
           onEditAssessment={handleEditAssessment}
+          onDeleteAssessment={handleDeleteAssessment}
         />
       ) : (
         <StyledMessage>
