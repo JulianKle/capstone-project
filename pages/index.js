@@ -19,7 +19,7 @@ const BackgroundAnimation = styled.div`
   height: 100%;
   background: linear-gradient(45deg, #61dafb, #38a169);
   z-index: -1;
-  animation: ${fadeIn} 1s ease-in-out;
+  animation: ${fadeIn} 2s ease-in-out;
 `;
 
 const StyledContentWithAssessments = styled.div`
