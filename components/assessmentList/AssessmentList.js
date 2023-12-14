@@ -102,7 +102,7 @@ export function AssessmentList({
               obligations.
             </p>
           ) : assessment.minimalRisk && !assessment.gpai ? (
-            <p>Result: Minimal Risk. Only voluntary "obligations".</p>
+            <p>Result: Minimal Risk. Only voluntary &quot;obligations&quot;.</p>
           ) : null}
           {assessment.gpai ? (
             <p>
