@@ -45,6 +45,24 @@ const DeleteButton = styled.button`
   }
 `;
 
+const BackButton = styled.button`
+  position: absolute;
+  top: px;
+  right: 20px;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #38a169;
+  }
+`;
+
 export default function AssessmentResult({ assessments }) {
   const router = useRouter();
   const { id } = router.query;
@@ -60,10 +78,10 @@ export default function AssessmentResult({ assessments }) {
     setHighRiskExpanded(!highRiskExpanded);
   };
 
-  const [gpaiExpanded, setGPAIExpanded] = useState(false);
+  const [gpaiExpanded, setGpaiExpanded] = useState(false);
 
-  const toggleGPAIExpand = () => {
-    setGPAIExpanded(!gpaiExpanded);
+  const toggleGpaiExpand = () => {
+    setGpaiExpanded(!gpaiExpanded);
   };
 
   const [unacceptableRiskExpanded, setUnacceptableRiskExpanded] =
@@ -98,8 +116,14 @@ export default function AssessmentResult({ assessments }) {
     resultAssessment?.useUnderSafetyRegulation ||
     resultAssessment?.useInCertainAre;
 
+  //Back-Button
+  const handleBackClick = () => {
+    router.push("/");
+  };
+
   return (
     <DetailContainer>
+      <BackButton onClick={handleBackClick}>Back</BackButton>
       <Title>Details for: {resultAssessment?.title}</Title>
 
       {resultAssessment?.editor ? (
@@ -234,8 +258,8 @@ export default function AssessmentResult({ assessments }) {
         </>
       )}
 
-      {resultAssessment?.GPAI && (
-        <ExpandableSection onClick={toggleGPAIExpand}>
+      {resultAssessment?.gpai && (
+        <ExpandableSection onClick={toggleGpaiExpand}>
           <h2>How are general-purpose AI models being regulated?</h2>
         </ExpandableSection>
       )}

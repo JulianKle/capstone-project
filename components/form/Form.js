@@ -119,7 +119,7 @@ export default function Formular({ handleAssessmentOperation, defaultData }) {
     useUnderSafetyRegulation: defaultData?.useUnderSafetyRegulation || false,
     useInCertainArea: defaultData?.useInCertainArea || false,
     specificTransparencyRisk: defaultData?.specificTransparencyRisk || false,
-    GPAI: defaultData?.GPAI || false,
+    gpai: defaultData?.gpai || false,
     minimalRisk: defaultData?.minimalRisk || false,
   });
 
@@ -274,15 +274,15 @@ export default function Formular({ handleAssessmentOperation, defaultData }) {
 
         <article>
           <p className="group-label">General-purpose AI</p>
-          <label htmlFor="GPAI">
+          <label htmlFor="gpai">
             Will the AI system be trained with a total computational power of or
             more than 10^25 FLOPs?
           </label>
           <input
-            id="GPAI"
-            name="GPAI"
+            id="gpai"
+            name="gpai"
             type="checkbox"
-            checked={formData.GPAI}
+            checked={formData.gpai}
             onChange={handleInputChange}
           />
         </article>
@@ -306,7 +306,7 @@ export default function Formular({ handleAssessmentOperation, defaultData }) {
       formData.useUnderSafetyRegulation ||
       formData.useInCertainArea ||
       formData.specificTransparencyRisk ||
-      formData.GPAI ||
+      formData.gpai ||
       formData.minimalRisk ? (
         <SubmitButton type="submit">Submit</SubmitButton>
       ) : (

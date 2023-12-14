@@ -61,7 +61,7 @@ function getColorCode(assessment) {
     return "#A05600"; // Dunkles Orange für High Risk
   } else if (assessment.specificTransparencyRisk) {
     return "#1F3A4D"; // Dunkles Blau für Only use of GenAI
-  } else if (assessment.GPAI) {
+  } else if (assessment.gpai) {
     return "#1F3A4D"; // Dunkles Grün für No special classification
   } else if (assessment.minimalRisk) {
     return "#3D8B37"; // Dunkles Grün für No special classification
@@ -101,10 +101,10 @@ export function AssessmentList({
               Result: There might be some risks for users. Extended transparency
               obligations.
             </p>
-          ) : assessment.minimalRisk && !assessment.GPAI ? (
+          ) : assessment.minimalRisk && !assessment.gpai ? (
             <p>Result: Minimal Risk. Only voluntary "obligations".</p>
           ) : null}
-          {assessment.GPAI ? (
+          {assessment.gpai ? (
             <p>
               The prerequisites for classification as general-purpose AI are met
               and therefore systematic risks may exist.{" "}
