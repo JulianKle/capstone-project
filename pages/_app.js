@@ -7,8 +7,7 @@ import { uid } from "uid";
 export default function App({ Component, pageProps }) {
   const [assessments, setAssessments] = useState([]);
   const [editingAssessment, setEditingAssessment] = useState(null);
-  const [filteredAssessment, setFilteredAssessments] = useState([]);
-  const [filterNoYes, setFilterNoYes] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
 
   //Assessments erstellen
   function handleNewAssessment(newAssessment) {
@@ -47,20 +46,12 @@ export default function App({ Component, pageProps }) {
   }
 
   //Filter Funktion
-  function filterAssessment(filterFor) {
-    setFilteredAssessments(
-      assessments.filter((assessment) => {
-        return assessment.title === filterFor;
-      })
-    );
+  function changeSearchTerm(newSearchTerm) {
+    setSearchTerm(newSearchTerm);
   }
 
-  function noFilterFalse() {
-    setFilterNoYes(false);
-  }
-
-  function noFilterTrue() {
-    setFilterNoYes(true);
+  function resetSearchTerm() {
+    setSearchTerm(null);
   }
 
   return (
@@ -75,11 +66,9 @@ export default function App({ Component, pageProps }) {
         handleUpdateAssessment={handleUpdateAssessment}
         editingAssessment={editingAssessment}
         handleDeleteAssessment={handleDeleteAssessment}
-        filterAssessment={filterAssessment}
-        filteredAssessment={filteredAssessment}
-        filterNoYes={filterNoYes}
-        noFilterFalse={noFilterFalse}
-        noFilterTrue={noFilterTrue}
+        changeSearchTerm={changeSearchTerm}
+        resetSearchTerm={resetSearchTerm}
+        searchTerm={searchTerm}
       />
       <Footer />
     </>

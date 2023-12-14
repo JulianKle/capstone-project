@@ -76,12 +76,14 @@ export default function HomePage({
   assessments,
   handleEditAssessment,
   handleDeleteAssessment,
-  filterAssessment,
-  filteredAssessment,
-  filterNoYes,
-  noFilterFalse,
-  noFilterTrue,
+  changeSearchTerm,
+  resetSearchTerm,
+  searchTerm,
 }) {
+  const filteredAssessments = searchTerm
+    ? assessments.filter((assessment) => assessment.title === searchTerm)
+    : assessments;
+
   return (
     <>
       <StyledContent>
@@ -89,24 +91,15 @@ export default function HomePage({
         {assessments.length > 0 ? (
           <>
             <SearchAssessment
-              onFilter={filterAssessment}
-              onSearch={noFilterFalse}
-              onOverview={noFilterTrue}
+              onFilter={changeSearchTerm}
+              onOverview={resetSearchTerm}
             />
             <StyledContentWithAssessments>
-              {filterNoYes ? (
-                <AssessmentList
-                  assessments={assessments}
-                  onEditAssessment={handleEditAssessment}
-                  onDeleteAssessment={handleDeleteAssessment}
-                />
-              ) : (
-                <AssessmentList
-                  assessments={filteredAssessment}
-                  onEditAssessment={handleEditAssessment}
-                  onDeleteAssessment={handleDeleteAssessment}
-                />
-              )}
+              <AssessmentList
+                assessments={filteredAssessments}
+                onEditAssessment={handleEditAssessment}
+                onDeleteAssessment={handleDeleteAssessment}
+              />
             </StyledContentWithAssessments>
           </>
         ) : (
