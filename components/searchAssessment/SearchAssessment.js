@@ -7,7 +7,7 @@ const StyledSearchForm = styled.form`
   justify-content: space-between;
   align-items: center; /* Ändere auf 'center', um die Elemente auf einer Höhe zu zentrieren */
   padding: 20px;
-  background-color: #282c34;
+  background-color: #1e2124;
   color: #61dafb;
 `;
 

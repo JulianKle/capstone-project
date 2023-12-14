@@ -8,10 +8,10 @@ export const CardSection = styled.section`
   align-items: center;
   padding: 20px;
   margin: 20px;
-  border: 2px solid #61dafb;
+  border: 2px solid #1e2124;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #282c34;
+  background-color: #1e2124;
   color: #61dafb;
 
   h3 {

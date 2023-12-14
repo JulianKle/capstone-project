@@ -9,7 +9,7 @@ const StyledForm = styled.form`
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #282c34;
+  background-color: #1e2124;
   color: #61dafb;
   margin-left: 0.5cm; // Hinzugefügt: Linker Rand
   margin-right: 0.5cm; // Hinzugefügt: Rechter Rand

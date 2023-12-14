@@ -15,7 +15,7 @@ const ExpandableSection = styled.div`
 
 const DetailContainer = styled.div`
   padding: 20px;
-  background-color: #282c34;
+  background-color: #1e2124;
   color: #61dafb;
   padding-top: 1.5cm;
   padding-bottom: 1.5cm;
@@ -347,7 +347,8 @@ export default function AssessmentResult({ assessments }) {
       {resultAssessment?.minimalRisk &&
         !hasUnacceptableRisk &&
         !hasHighRisk &&
-        !resultAssessment?.specificTransparencyRisk && (
+        !resultAssessment?.specificTransparencyRisk &&
+        !resultAssessment.gpai && (
           <ExpandableSection onClick={toggleMinimalRiskExpand}>
             <h2>Voluntary Obligations</h2>
           </ExpandableSection>
@@ -357,8 +358,8 @@ export default function AssessmentResult({ assessments }) {
         <DetailsSection>
           <SubSection>
             <DetailParagraph>
-              As a provider of such a system, you can voluntarily choose to
-              apply the requirements for trustworthy AI and follow codes of
+              As a provider of a minimal risk system, you can voluntarily choose
+              to apply the requirements for trustworthy AI and follow codes of
               conduct.
             </DetailParagraph>
           </SubSection>
