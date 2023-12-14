@@ -62,7 +62,7 @@ function getColorCode(assessment) {
     return "#A05600"; // Dunkles Orange für High Risk
   } else if (assessment.useGenAI) {
     return "#1F3A4D"; // Dunkles Blau für Only use of GenAI
-  } else if (assessment.noneAboveApplies) {
+  } else if (assessment.minimalRisk) {
     return "#3D8B37"; // Dunkles Grün für No special classification
   }
 }
@@ -95,12 +95,18 @@ export function AssessmentList({
           ) : assessment.useUnderSafetyRegulation ||
             assessment.useInCertainArea ? (
             <p>Result: High Risk</p>
-          ) : assessment.useGenAI ? (
-            <p>Result: Only use of GenAI. Extended transparency obligations.</p>
-          ) : assessment.noneAboveApplies ? (
+          ) : assessment.specificTransparencyRisk ? (
             <p>
-              Result: No special classification. Only minor transparency
+              Result: There might be some risks for users. Extended transparency
               obligations.
+            </p>
+          ) : assessment.minimalRisk ? (
+            <p>Result: Minimal Risk. Only voluntary "obligations".</p>
+          ) : null}
+          {assessment.GPAI ? (
+            <p>
+              The prerequisites for classification as general-purpose AI are met
+              and therefore systematic risks may exist.{" "}
             </p>
           ) : null}
           <Link href="/form">
@@ -112,6 +118,9 @@ export function AssessmentList({
           <button onClick={() => onDeleteAssessment(assessment.id)}>
             Delete
           </button>
+          <Link href={`/details/${assessment.id}`}>
+            <button>Details</button>
+          </Link>
         </CardSection>
       ))}
     </>
