@@ -73,7 +73,7 @@ const BackToOverviewButton = styled.button`
 export function SearchAssessment({ onFilter, onOverview }) {
   function filterName(event) {
     event.preventDefault();
-    onFilter(event.target.elements.search.value);
+    onFilter(event.target.elements.search.value.toLowerCase());
   }
 
   return (

@@ -81,7 +81,9 @@ export default function HomePage({
   searchTerm,
 }) {
   const filteredAssessments = searchTerm
-    ? assessments.filter((assessment) => assessment.title === searchTerm)
+    ? assessments.filter((assessment) =>
+        assessment.title.toLowerCase().includes(searchTerm)
+      )
     : assessments;
 
   return (
