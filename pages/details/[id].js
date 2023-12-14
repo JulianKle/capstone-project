@@ -101,8 +101,22 @@ export default function AssessmentResult({ assessments }) {
   return (
     <DetailContainer>
       <Title>Details for: {resultAssessment?.title}</Title>
-      <DetailParagraph>Editor: {resultAssessment?.editor}</DetailParagraph>
-      <DetailParagraph>Company: {resultAssessment?.company}</DetailParagraph>
+
+      {resultAssessment?.editor ? (
+        <DetailParagraph>Editor: {resultAssessment.editor}</DetailParagraph>
+      ) : (
+        <DetailParagraph>
+          Editor: Please add the data via the edit-button in the form.
+        </DetailParagraph>
+      )}
+
+      {resultAssessment?.company ? (
+        <DetailParagraph>Company: {resultAssessment.company}</DetailParagraph>
+      ) : (
+        <DetailParagraph>
+          Company: Please add the data via the edit-button in the form.
+        </DetailParagraph>
+      )}
 
       {hasUnacceptableRisk && (
         <ExpandableSection onClick={toggleUnacceptableRiskExpand}>
