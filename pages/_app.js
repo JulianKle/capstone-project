@@ -7,6 +7,7 @@ import { uid } from "uid";
 export default function App({ Component, pageProps }) {
   const [assessments, setAssessments] = useState([]);
   const [editingAssessment, setEditingAssessment] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   //Assessments erstellen
   function handleNewAssessment(newAssessment) {
@@ -44,6 +45,15 @@ export default function App({ Component, pageProps }) {
     );
   }
 
+  //Filter Funktion
+  function changeSearchTerm(newSearchTerm) {
+    setSearchTerm(newSearchTerm);
+  }
+
+  function resetSearchTerm() {
+    setSearchTerm(null);
+  }
+
   return (
     <>
       <Header />
@@ -56,6 +66,9 @@ export default function App({ Component, pageProps }) {
         handleUpdateAssessment={handleUpdateAssessment}
         editingAssessment={editingAssessment}
         handleDeleteAssessment={handleDeleteAssessment}
+        changeSearchTerm={changeSearchTerm}
+        resetSearchTerm={resetSearchTerm}
+        searchTerm={searchTerm}
       />
       <Footer />
     </>
