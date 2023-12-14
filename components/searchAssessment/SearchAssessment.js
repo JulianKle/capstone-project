@@ -1,5 +1,4 @@
 // SearchAssessment.js
-import React from "react";
 import styled from "styled-components";
 
 const StyledSearchForm = styled.form`
@@ -71,7 +70,7 @@ const BackToOverviewButton = styled.button`
   }
 `;
 
-export function SearchAssessment({ onFilter, onSearch, onOverview }) {
+export function SearchAssessment({ onFilter, onOverview }) {
   function filterName(event) {
     event.preventDefault();
     onFilter(event.target.elements.search.value);
@@ -84,9 +83,7 @@ export function SearchAssessment({ onFilter, onSearch, onOverview }) {
         <input type="text" name="search" />
       </SearchField>
 
-      <SearchButton type="submit" onClick={onSearch}>
-        Search
-      </SearchButton>
+      <SearchButton type="submit">Search</SearchButton>
       <BackToOverviewButton type="reset" onClick={onOverview}>
         Back to overview
       </BackToOverviewButton>
