@@ -1,5 +1,4 @@
 // Card.js
-import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
@@ -9,10 +8,10 @@ export const CardSection = styled.section`
   align-items: center;
   padding: 20px;
   margin: 20px;
-  border: 2px solid #61dafb;
+  border: 2px solid #1e2124;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #282c34;
+  background-color: #1e2124;
   color: #61dafb;
 
   h3 {
@@ -60,9 +59,11 @@ function getColorCode(assessment) {
     assessment.useInCertainArea
   ) {
     return "#A05600"; // Dunkles Orange für High Risk
-  } else if (assessment.useGenAI) {
+  } else if (assessment.specificTransparencyRisk) {
     return "#1F3A4D"; // Dunkles Blau für Only use of GenAI
-  } else if (assessment.noneAboveApplies) {
+  } else if (assessment.gpai) {
+    return "#1F3A4D"; // Dunkles Grün für No special classification
+  } else if (assessment.minimalRisk) {
     return "#3D8B37"; // Dunkles Grün für No special classification
   }
 }
@@ -95,12 +96,18 @@ export function AssessmentList({
           ) : assessment.useUnderSafetyRegulation ||
             assessment.useInCertainArea ? (
             <p>Result: High Risk</p>
-          ) : assessment.useGenAI ? (
-            <p>Result: Only use of GenAI. Extended transparency obligations.</p>
-          ) : assessment.noneAboveApplies ? (
+          ) : assessment.specificTransparencyRisk ? (
             <p>
-              Result: No special classification. Only minor transparency
+              Result: There might be some risks for users. Extended transparency
               obligations.
+            </p>
+          ) : assessment.minimalRisk && !assessment.gpai ? (
+            <p>Result: Minimal Risk. Only voluntary &quot;obligations&quot;.</p>
+          ) : null}
+          {assessment.gpai ? (
+            <p>
+              The prerequisites for classification as general-purpose AI are met
+              and therefore systematic risks may exist.{" "}
             </p>
           ) : null}
           <Link href="/form">
@@ -112,6 +119,9 @@ export function AssessmentList({
           <button onClick={() => onDeleteAssessment(assessment.id)}>
             Delete
           </button>
+          <Link href={`/details/${assessment.id}`}>
+            <button>Details</button>
+          </Link>
         </CardSection>
       ))}
     </>

@@ -9,7 +9,7 @@ const StyledForm = styled.form`
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #282c34;
+  background-color: #1e2124;
   color: #61dafb;
   margin-left: 0.5cm; // Hinzugefügt: Linker Rand
   margin-right: 0.5cm; // Hinzugefügt: Rechter Rand
@@ -118,8 +118,9 @@ export default function Formular({ handleAssessmentOperation, defaultData }) {
     biometricIdentification: defaultData?.biometricIdentification || false,
     useUnderSafetyRegulation: defaultData?.useUnderSafetyRegulation || false,
     useInCertainArea: defaultData?.useInCertainArea || false,
-    useGenAI: defaultData?.useGenAI || false,
-    noneAboveApplies: defaultData?.noneAboveApplies || false,
+    specificTransparencyRisk: defaultData?.specificTransparencyRisk || false,
+    gpai: defaultData?.gpai || false,
+    minimalRisk: defaultData?.minimalRisk || false,
   });
 
   function handleInputChange(event) {
@@ -257,28 +258,43 @@ export default function Formular({ handleAssessmentOperation, defaultData }) {
         </article>
 
         <article>
-          <p className="group-label">GenAI</p>
-          <label htmlFor="useGenAI">
-            Will the system use or be based on Generative Foundation models such
-            as ChatGPT?
+          <p className="group-label">Risk of manipulation</p>
+          <label htmlFor="specificTransparencyRisk">
+            Will there be a risk of manipulation for the user of the system
+            (e.g. when using chatbots)?
           </label>
           <input
-            id="useGenAI"
-            name="useGenAI"
+            id="specificTransparencyRisk"
+            name="specificTransparencyRisk"
             type="checkbox"
-            checked={formData.useGenAI}
+            checked={formData.specificTransparencyRisk}
             onChange={handleInputChange}
           />
         </article>
 
         <article>
-          <p className="group-label">Low Risk</p>
-          <label htmlFor="noneAboveApplies">None of the above applies.</label>
+          <p className="group-label">General-purpose AI</p>
+          <label htmlFor="gpai">
+            Will the AI system be trained with a total computational power of or
+            more than 10^25 FLOPs?
+          </label>
           <input
-            id="noneAboveApplies"
-            name="noneAboveApplies"
+            id="gpai"
+            name="gpai"
             type="checkbox"
-            checked={formData.noneAboveApplies}
+            checked={formData.gpai}
+            onChange={handleInputChange}
+          />
+        </article>
+
+        <article>
+          <p className="group-label">Minimal Risk</p>
+          <label htmlFor="minimalRisk">None of the above applies.</label>
+          <input
+            id="minimalRisk"
+            name="minimalRisk"
+            type="checkbox"
+            checked={formData.minimalRisk}
             onChange={handleInputChange}
           />
         </article>
@@ -289,8 +305,9 @@ export default function Formular({ handleAssessmentOperation, defaultData }) {
       formData.biometricIdentification ||
       formData.useUnderSafetyRegulation ||
       formData.useInCertainArea ||
-      formData.useGenAI ||
-      formData.noneAboveApplies ? (
+      formData.specificTransparencyRisk ||
+      formData.gpai ||
+      formData.minimalRisk ? (
         <SubmitButton type="submit">Submit</SubmitButton>
       ) : (
         <SubmitErrorMessage>
