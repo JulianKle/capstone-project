@@ -3,6 +3,9 @@ import Header from "../components/Layout/header/Header.js";
 import Footer from "../components/Layout/footer/Footer.js";
 import { useState } from "react";
 import { uid } from "uid";
+import { SWRConfig } from "swr";
+
+const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export default function App({ Component, pageProps }) {
   const [assessments, setAssessments] = useState([]);
@@ -56,21 +59,23 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <Header />
-      <GlobalStyle />
-      <Component
-        {...pageProps}
-        assessments={assessments}
-        handleNewAssessment={handleNewAssessment}
-        handleEditAssessment={handleEditAssessment}
-        handleUpdateAssessment={handleUpdateAssessment}
-        editingAssessment={editingAssessment}
-        handleDeleteAssessment={handleDeleteAssessment}
-        changeSearchTerm={changeSearchTerm}
-        resetSearchTerm={resetSearchTerm}
-        searchTerm={searchTerm}
-      />
-      <Footer />
+      <SWRConfig value={{ fetcher }}>
+        <Header />
+        <GlobalStyle />
+        <Component
+          {...pageProps}
+          assessments={assessments}
+          handleNewAssessment={handleNewAssessment}
+          handleEditAssessment={handleEditAssessment}
+          handleUpdateAssessment={handleUpdateAssessment}
+          editingAssessment={editingAssessment}
+          handleDeleteAssessment={handleDeleteAssessment}
+          changeSearchTerm={changeSearchTerm}
+          resetSearchTerm={resetSearchTerm}
+          searchTerm={searchTerm}
+        />
+        <Footer />
+      </SWRConfig>
     </>
   );
 }
