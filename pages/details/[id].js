@@ -157,6 +157,7 @@ export default function AssessmentResult({ assessments }) {
         </DetailParagraph>
       )}
 
+      <Title>Info-Sec:</Title>
       {hasUnacceptableRisk && (
         <ExpandableSection onClick={toggleUnacceptableRiskExpand}>
           <h2>Unacceptable Risks</h2>
