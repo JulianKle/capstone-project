@@ -75,8 +75,6 @@ const StyledLink = styled(Link)`
 `;
 
 export default function HomePage({
-  handleEditAssessment,
-  handleDeleteAssessment,
   changeSearchTerm,
   resetSearchTerm,
   searchTerm,
