@@ -13,4 +13,15 @@ export default async function handler(request, response) {
       response.status(500).json({ error: "Internal Server Error" });
     }
   }
+
+  if (request.method === "POST") {
+    try {
+      const assessmentData = request.body;
+      await Assessment.create(assessmentData);
+      response.status(201).json({ status: "Assessment created" });
+    } catch (error) {
+      console.log(error);
+      response.status(400).json({ error: error.message });
+    }
+  }
 }

@@ -115,7 +115,7 @@ export function AssessmentList({ onEditAssessment, onDeleteAssessment }) {
               and therefore systematic risks may exist.{" "}
             </p>
           ) : null}
-          <Link href="/form">
+          <Link href="/create">
             <button onClick={() => onEditAssessment(assessment._id)}>
               Edit
             </button>
@@ -124,7 +124,7 @@ export function AssessmentList({ onEditAssessment, onDeleteAssessment }) {
           <button onClick={() => onDeleteAssessment(assessment._id)}>
             Delete
           </button>
-          <Link href={`/details/${assessment.id}`}>
+          <Link href={`/assessments/${assessment._id}`}>
             <button>Details</button>
           </Link>
         </CardSection>
