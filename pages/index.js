@@ -85,7 +85,11 @@ export default function HomePage({
   const { data: assessments, isLoading } = useSWR("/api/assessments");
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return (
+      <StyledContent>
+        <h1>Loading...</h1>
+      </StyledContent>
+    );
   }
 
   if (!assessments) {
