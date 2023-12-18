@@ -2,6 +2,8 @@ import styled, { keyframes } from "styled-components";
 import Link from "next/link";
 import { AssessmentList } from "@/components/assessmentList/AssessmentList";
 import { SearchAssessment } from "@/components/searchAssessment/SearchAssessment";
+import useSWR from "swr";
+import { useRouter } from "next/router.js";
 
 const StyledContent = styled.div`
   padding-top: 1.5cm; /* Abstand zum Header */
@@ -73,13 +75,27 @@ const StyledLink = styled(Link)`
 `;
 
 export default function HomePage({
-  assessments,
   handleEditAssessment,
   handleDeleteAssessment,
   changeSearchTerm,
   resetSearchTerm,
   searchTerm,
 }) {
+  const router = useRouter();
+  const { data: assessments, isLoading } = useSWR("/api/assessments");
+
+  if (isLoading) {
+    return (
+      <StyledContent>
+        <h1>Loading...</h1>
+      </StyledContent>
+    );
+  }
+
+  if (!assessments) {
+    return;
+  }
+
   const filteredAssessments = searchTerm
     ? assessments.filter((assessment) =>
         assessment.title.toLowerCase().includes(searchTerm)

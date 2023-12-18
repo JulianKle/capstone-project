@@ -1,6 +1,8 @@
 // Card.js
 import styled from "styled-components";
 import Link from "next/link";
+import useSWR from "swr";
+import { useRouter } from "next/router.js";
 
 export const CardSection = styled.section`
   display: flex;
@@ -68,20 +70,23 @@ function getColorCode(assessment) {
   }
 }
 
-export function AssessmentList({
-  assessments,
-  onEditAssessment,
-  onDeleteAssessment,
-}) {
-  if (!assessments?.length === 0) {
-    return <p>Bitte Assessments hinzufügen.</p>;
+export function AssessmentList({ onEditAssessment, onDeleteAssessment }) {
+  const router = useRouter();
+  const { data: assessments, isLoading } = useSWR("/api/assessments");
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (!assessments) {
+    return;
   }
 
   return (
     <>
       {assessments.map((assessment) => (
         <CardSection
-          key={assessment.id}
+          key={assessment._id}
           style={{ backgroundColor: getColorCode(assessment) }}
         >
           <h3>{assessment.title}</h3>
@@ -111,12 +116,12 @@ export function AssessmentList({
             </p>
           ) : null}
           <Link href="/form">
-            <button onClick={() => onEditAssessment(assessment.id)}>
+            <button onClick={() => onEditAssessment(assessment._id)}>
               Edit
             </button>
           </Link>
 
-          <button onClick={() => onDeleteAssessment(assessment.id)}>
+          <button onClick={() => onDeleteAssessment(assessment._id)}>
             Delete
           </button>
           <Link href={`/details/${assessment.id}`}>
