@@ -105,7 +105,7 @@ const SubmitErrorMessage = styled.p`
   width: 100%;
 `;
 
-export default function Formular({ handleAssessmentOperation, defaultData }) {
+export function Form({ handleAssessmentOperation, defaultData }) {
   const router = useRouter();
 
   const [formData, setFormData] = useState({
@@ -135,17 +135,9 @@ export default function Formular({ handleAssessmentOperation, defaultData }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-
-    const updatedData = {
-      ...formData,
-    };
-
-    handleAssessmentOperation(updatedData);
-
-    router.push("/");
+    handleAssessmentOperation(formData);
+    event.target.reset();
   }
-
-  console.log(formData);
 
   return (
     <StyledForm onSubmit={handleSubmit}>

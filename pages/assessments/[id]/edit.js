@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import useSWR from "swr";
-import Form from "@/components/form/Form.js";
+import { Form } from "@/components/form/Form.js";
 import styled from "styled-components";
 
 const EditContainer = styled.div`
