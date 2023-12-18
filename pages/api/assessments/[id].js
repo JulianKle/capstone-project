@@ -26,4 +26,11 @@ export default async function handler(request, response) {
 
     response.status(200).json({ status: `Assessment successfully updated.` });
   }
+
+  if (request.method === "DELETE") {
+    await Assessment.findByIdAndDelete(id);
+    response
+      .status(200)
+      .json({ status: `Assessment ${id} successfully deleted.` });
+  }
 }
