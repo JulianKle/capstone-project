@@ -4,13 +4,18 @@ import useSWR from "swr";
 import { Form } from "@/components/form/Form.js";
 import styled from "styled-components";
 
-const CreateContainer = styled.div`
-  padding: 20px;
-  background-color: #282c34;
-  color: #61dafb;
-  position: relative; // Hinzugefügt
+const StyledContent = styled.div`
   padding-top: 1.5cm; /* Abstand zum Header */
   padding-bottom: 1.5cm; /* Ändere die Höhe nach Bedarf, um Platz für den Footer zu schaffen */
+`;
+
+const CreateContainer = styled.div`
+  padding: 20px;
+  background-color: #1e2124;
+  color: #61dafb;
+  position: relative;
+  margin-left: 0.5cm; // Hinzugefügt: Linker Rand
+  margin-right: 0.5cm; // Hinzugefügt: Rechter Rand
 `;
 
 const CreateTitle = styled.h2`
@@ -58,12 +63,17 @@ export default function CreateAssessmentPage() {
   }
 
   return (
-    <CreateContainer>
-      <CreateTitle id="add-assessment">Add Assessment</CreateTitle>
-      <Link href="/" passHref legacyBehavior>
-        <StyledLink>Back</StyledLink>
-      </Link>
-      <Form handleAssessmentOperation={onSubmit} formName={"add-assessment"} />
-    </CreateContainer>
+    <StyledContent>
+      <CreateContainer>
+        <CreateTitle id="add-assessment">Add Assessment</CreateTitle>
+        <Link href="/" passHref legacyBehavior>
+          <StyledLink>Back</StyledLink>
+        </Link>
+        <Form
+          handleAssessmentOperation={onSubmit}
+          formName={"add-assessment"}
+        />
+      </CreateContainer>
+    </StyledContent>
   );
 }

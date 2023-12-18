@@ -4,11 +4,18 @@ import useSWR from "swr";
 import { Form } from "@/components/form/Form.js";
 import styled from "styled-components";
 
+const StyledContent = styled.div`
+  padding-top: 1.5cm; /* Abstand zum Header */
+  padding-bottom: 1.5cm; /* Ändere die Höhe nach Bedarf, um Platz für den Footer zu schaffen */
+`;
+
 const EditContainer = styled.div`
   padding: 20px;
-  background-color: #282c34;
+  background-color: #1e2124;
   color: #61dafb;
-  position: relative; // Hinzugefügt
+  position: relative;
+  margin-left: 0.5cm; // Hinzugefügt: Linker Rand
+  margin-right: 0.5cm; // Hinzugefügt: Rechter Rand
 `;
 
 const EditTitle = styled.h2`
@@ -18,7 +25,7 @@ const EditTitle = styled.h2`
 
 const StyledLink = styled.a`
   position: absolute;
-  top: 20px;
+  top: 25px;
   right: 20px;
   padding: 10px;
   font-size: 18px;
@@ -55,7 +62,7 @@ export default function EditPage() {
     });
 
     if (response.ok) {
-      router.push("/");
+      router.push(`/assessments/${id}`);
       mutate();
     }
   }
@@ -63,16 +70,20 @@ export default function EditPage() {
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;
 
   return (
-    <EditContainer>
-      <EditTitle id="edit-assessment">Edit Assessment</EditTitle>
-      <Link href={`/assessments/${id}`} passHref legacyBehavior>
-        <StyledLink>Back</StyledLink>
-      </Link>
-      <Form
-        handleAssessmentOperation={editAssessment}
-        formName={"edit-assessment"}
-        defaultData={assessment}
-      />
-    </EditContainer>
+    <StyledContent>
+      <EditContainer>
+        <EditTitle id="edit-assessment">
+          Edit Assessment: {assessment.title}
+        </EditTitle>
+        <Link href={`/assessments/${id}`} passHref legacyBehavior>
+          <StyledLink>Back</StyledLink>
+        </Link>
+        <Form
+          handleAssessmentOperation={editAssessment}
+          formName={"edit-assessment"}
+          defaultData={assessment}
+        />
+      </EditContainer>
+    </StyledContent>
   );
 }
