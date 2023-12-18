@@ -83,41 +83,36 @@ export default function AssessmentResult() {
   const router = useRouter();
   const { id } = router.query;
   const { data: resultAssessment, error } = useSWR(`/api/assessments/${id}`);
+  const [highRiskExpanded, setHighRiskExpanded] = useState(false);
+  const [gpaiExpanded, setGpaiExpanded] = useState(false);
+  const [unacceptableRiskExpanded, setUnacceptableRiskExpanded] =
+    useState(false);
+  const [
+    specificTransparencyRiskExpanded,
+    setSpecificTransparencyRiskExpanded,
+  ] = useState(false);
+  const [minimalRiskExpanded, setMinimalRiskExpanded] = useState(false);
 
   if (error) return <div>Error loading assessment</div>;
   if (!resultAssessment) return <div>Loading...</div>;
 
   //State and Function for Expand Sections
 
-  const [highRiskExpanded, setHighRiskExpanded] = useState(false);
-
   const toggleHighRiskExpand = () => {
     setHighRiskExpanded(!highRiskExpanded);
   };
-
-  const [gpaiExpanded, setGpaiExpanded] = useState(false);
 
   const toggleGpaiExpand = () => {
     setGpaiExpanded(!gpaiExpanded);
   };
 
-  const [unacceptableRiskExpanded, setUnacceptableRiskExpanded] =
-    useState(false);
-
   const toggleUnacceptableRiskExpand = () => {
     setUnacceptableRiskExpanded(!unacceptableRiskExpanded);
   };
 
-  const [
-    specificTransparencyRiskExpanded,
-    setSpecificTransparencyRiskExpanded,
-  ] = useState(false);
-
   const toggleSpecificTransparencyRisk = () => {
     setSpecificTransparencyRiskExpanded(!specificTransparencyRiskExpanded);
   };
-
-  const [minimalRiskExpanded, setMinimalRiskExpanded] = useState(false);
 
   const toggleMinimalRiskExpand = () => {
     setMinimalRiskExpanded(!minimalRiskExpanded);
