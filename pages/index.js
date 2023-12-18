@@ -113,11 +113,7 @@ export default function HomePage({
               onOverview={resetSearchTerm}
             />
             <StyledContentWithAssessments>
-              <AssessmentList
-                assessments={filteredAssessments}
-                onEditAssessment={handleEditAssessment}
-                onDeleteAssessment={handleDeleteAssessment}
-              />
+              <AssessmentList assessments={filteredAssessments} />
             </StyledContentWithAssessments>
           </>
         ) : (
