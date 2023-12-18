@@ -11,29 +11,25 @@ const StyledForm = styled.form`
   padding: 20px;
   background-color: #1e2124;
   color: #61dafb;
-  margin-left: 0.5cm; // Hinzugefügt: Linker Rand
-  margin-right: 0.5cm; // Hinzugefügt: Rechter Rand
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
 `;
 
 const FormField = styled.article`
-  margin-bottom: 24px;
+  margin-bottom: 1rem;
 
   label {
     margin-bottom: 8px;
-    font-size: 18px;
+    font-size: 1.2rem;
     display: block;
   }
 
   .group-label {
-    font-size: 20px;
+    font-size: 1.4rem;
     font-weight: bold;
-    margin-bottom: 12px;
+    margin-bottom: 0.8rem;
     border-bottom: 2px solid #61dafb;
-    padding-bottom: 8px;
-  }
-
-  .checkbox-group {
-    margin-bottom: 16px;
+    padding-bottom: 0.6rem;
   }
 
   .checkbox-items {
@@ -53,13 +49,13 @@ const FormField = styled.article`
   }
 
   .checkbox-label {
-    font-size: 16px;
+    font-size: 1.2rem;
   }
 
   input {
     width: 100%;
-    padding: 8px;
-    font-size: 16px;
+    padding: 0.6rem;
+    font-size: 1rem;
     border: 2px solid #61dafb;
     border-radius: 4px;
     background-color: #282c34;
@@ -67,11 +63,11 @@ const FormField = styled.article`
     outline: none;
 
     .group-label {
-      font-size: 20px;
+      font-size: 1.4rem;
       font-weight: bold;
-      margin-bottom: 12px;
+      margin-bottom: 1rem;
       border-bottom: 2px solid #61dafb;
-      padding-bottom: 8px;
+      padding-bottom: 0.8rem;
     }
 
     &:focus {
@@ -82,9 +78,9 @@ const FormField = styled.article`
 
 const SubmitButton = styled.button`
   width: 100%;
-  margin-top: 15px;
-  padding: 10px;
-  font-size: 18px;
+  margin-top: 1.2rem;
+  padding: 0.8rem;
+  font-size: 1.3rem;
   background-color: #61dafb;
   color: #282c34;
   border: none;
@@ -98,14 +94,14 @@ const SubmitButton = styled.button`
 `;
 
 const SubmitErrorMessage = styled.p`
-  font-size: 20px;
+  font-size: 1.3rem;
   color: red;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 1.1rem;
   width: 100%;
 `;
 
-export default function Formular({ handleAssessmentOperation, defaultData }) {
+export function Form({ handleAssessmentOperation, defaultData }) {
   const router = useRouter();
 
   const [formData, setFormData] = useState({
@@ -135,17 +131,9 @@ export default function Formular({ handleAssessmentOperation, defaultData }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-
-    const updatedData = {
-      ...formData,
-    };
-
-    handleAssessmentOperation(updatedData);
-
-    router.push("/");
+    handleAssessmentOperation(formData);
+    event.target.reset();
   }
-
-  console.log(formData);
 
   return (
     <StyledForm onSubmit={handleSubmit}>

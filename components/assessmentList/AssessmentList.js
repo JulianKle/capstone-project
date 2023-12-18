@@ -8,8 +8,8 @@ export const CardSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  margin: 20px;
+  padding: 1.2rem;
+  margin: 1.2rem;
   border: 2px solid #1e2124;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -17,8 +17,8 @@ export const CardSection = styled.section`
   color: #61dafb;
 
   h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
   }
 
   ul {
@@ -28,14 +28,14 @@ export const CardSection = styled.section`
   }
 
   li {
-    margin-bottom: 8px;
-    font-size: 18px;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
   }
 
   button {
-    margin-top: 15px;
-    padding: 10px;
-    font-size: 18px;
+    margin-top: 0.9rem;
+    padding: 0.7rem;
+    font-size: 1.2rem;
     background-color: #61dafb;
     color: #282c34;
     border: none;
@@ -115,16 +115,11 @@ export function AssessmentList({ onEditAssessment, onDeleteAssessment }) {
               and therefore systematic risks may exist.{" "}
             </p>
           ) : null}
-          <Link href="/form">
-            <button onClick={() => onEditAssessment(assessment._id)}>
-              Edit
-            </button>
-          </Link>
 
           <button onClick={() => onDeleteAssessment(assessment._id)}>
             Delete
           </button>
-          <Link href={`/details/${assessment.id}`}>
+          <Link href={`/assessments/${assessment._id}`}>
             <button>Details</button>
           </Link>
         </CardSection>
