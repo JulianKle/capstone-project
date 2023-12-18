@@ -5,30 +5,30 @@ import { Form } from "@/components/form/Form.js";
 import styled from "styled-components";
 
 const StyledContent = styled.div`
-  padding-top: 1.5cm; /* Abstand zum Header */
-  padding-bottom: 1.5cm; /* Ändere die Höhe nach Bedarf, um Platz für den Footer zu schaffen */
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
 `;
 
 const CreateContainer = styled.div`
-  padding: 20px;
+  padding: 1rem;
   background-color: #1e2124;
   color: #61dafb;
   position: relative;
-  margin-left: 0.5cm; // Hinzugefügt: Linker Rand
-  margin-right: 0.5cm; // Hinzugefügt: Rechter Rand
+  margin-left: 1rem;
+  margin-right: 1rem;
 `;
 
 const CreateTitle = styled.h2`
-  font-size: 24px;
-  margin-bottom: 20px; // Hinzugefügt
+  font-size: 1.7rem;
+  margin-bottom: 0.8rem;
 `;
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 10px;
-  font-size: 18px;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.8rem;
+  font-size: 1.2rem;
   background-color: #61dafb;
   color: #282c34;
   border: none;
@@ -66,9 +66,7 @@ export default function CreateAssessmentPage() {
     <StyledContent>
       <CreateContainer>
         <CreateTitle id="add-assessment">Add Assessment</CreateTitle>
-        <Link href="/" passHref legacyBehavior>
-          <StyledLink>Back</StyledLink>
-        </Link>
+        <StyledLink href="/">Back </StyledLink>
         <Form
           handleAssessmentOperation={onSubmit}
           formName={"add-assessment"}

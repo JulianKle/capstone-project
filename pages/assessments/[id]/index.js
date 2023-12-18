@@ -50,36 +50,38 @@ const DetailsSection = styled.div`
 `;
 
 const Button = styled.button`
-  padding: 10px;
-  font-size: 18px;
+  padding: 0.7rem;
+  font-size: 1.2rem;
   background-color: #61dafb;
   color: #282c34;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 15px;
+  margin-top: 0.9rem;
 
   &:hover {
     background-color: #38a169;
   }
 `;
 
-const BackButton = styled.button`
+const StyledLink = styled(Link)`
   position: absolute;
-  top: px;
-  right: 20px;
-  padding: 10px;
-  font-size: 18px;
+  top: 4.5rem;
+  right: 1.5rem;
+  padding: 0.8rem;
+  font-size: 1.2rem;
   background-color: #61dafb;
   color: #282c34;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-decoration: none;
 
   &:hover {
     background-color: #38a169;
+    text-decoration: underline;
   }
 `;
 
@@ -132,15 +134,10 @@ export default function AssessmentResult() {
     resultAssessment?.useUnderSafetyRegulation ||
     resultAssessment?.useInCertainAre;
 
-  //Back-Button
-  const handleBackClick = () => {
-    router.push("/");
-  };
-
   return (
     <StyledContent>
       <DetailContainer>
-        <BackButton onClick={handleBackClick}>Back</BackButton>
+        <StyledLink href="/">Back</StyledLink>
         <Title>Details for: {resultAssessment?.title}</Title>
 
         {resultAssessment?.editor ? (
