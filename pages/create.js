@@ -9,6 +9,8 @@ const CreateContainer = styled.div`
   background-color: #282c34;
   color: #61dafb;
   position: relative; // Hinzugefügt
+  padding-top: 1.5cm; /* Abstand zum Header */
+  padding-bottom: 1.5cm; /* Ändere die Höhe nach Bedarf, um Platz für den Footer zu schaffen */
 `;
 
 const CreateTitle = styled.h2`
