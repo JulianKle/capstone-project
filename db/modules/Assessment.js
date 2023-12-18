@@ -20,6 +20,4 @@ const assessmentSchema = new Schema({
 const Assessment =
   mongoose.models.Assessment || mongoose.model("Assessment", assessmentSchema);
 
-console.log(Assessment);
-
 export default Assessment;
