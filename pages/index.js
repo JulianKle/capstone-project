@@ -130,7 +130,7 @@ export default function HomePage({
             </>
           </StyledContentWithoutAssessments>
         )}
-        <StyledLink href="/form">Add Assessment</StyledLink>
+        <StyledLink href="/create">Add Assessment</StyledLink>
       </StyledContent>
     </>
   );
