@@ -9,17 +9,6 @@ const StyledContent = styled.div`
   padding-bottom: 3.5rem;
 `;
 
-const ExpandableSection = styled.div`
-  cursor: pointer;
-  margin-top: 15px;
-  border-bottom: 2px solid #61dafb;
-  padding-bottom: 10px;
-
-  &:hover {
-    background-color: #1f1f1f;
-  }
-`;
-
 const DetailContainer = styled.div`
   padding: 20px;
   background-color: #1e2124;
@@ -41,6 +30,16 @@ const SubSection = styled.div`
 const Title = styled.h1`
   font-size: 24px;
   margin-bottom: 10px;
+`;
+
+const TitleInfoSec = styled.h2`
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: white;
+  cursor: pointer;
+  margin-top: 15px;
+  border-bottom: 2px solid #61dafb;
+  padding-bottom: 10px;
 `;
 
 const DetailParagraph = styled.p`
@@ -84,6 +83,7 @@ const ButtonEdit = styled.button`
   transition: background-color 0.3s;
   margin-top: 0.8rem;
   margin-right: 0.5rem;
+  margin-bottom: 1rem;
 
   &:hover {
     background-color: #38a169;
@@ -229,9 +229,9 @@ export default function AssessmentResult() {
 
         <Title>Info-Sec:</Title>
         {hasUnacceptableRisk && (
-          <ExpandableSection onClick={toggleUnacceptableRiskExpand}>
+          <TitleInfoSec onClick={toggleUnacceptableRiskExpand}>
             <h2>Unacceptable Risks</h2>
-          </ExpandableSection>
+          </TitleInfoSec>
         )}
 
         {unacceptableRiskExpanded && (
@@ -279,9 +279,9 @@ export default function AssessmentResult() {
         {(resultAssessment?.useUnderSafetyRegulation ||
           resultAssessment?.useInCertainArea) &&
           !hasUnacceptableRisk && (
-            <ExpandableSection onClick={toggleHighRiskExpand}>
+            <TitleInfoSec onClick={toggleHighRiskExpand}>
               <h2>What are the obligations for high-risk AI systems?</h2>
-            </ExpandableSection>
+            </TitleInfoSec>
           )}
 
         {highRiskExpanded && (
@@ -332,9 +332,9 @@ export default function AssessmentResult() {
         {resultAssessment?.specificTransparencyRisk &&
           !hasUnacceptableRisk &&
           !hasHighRisk && (
-            <ExpandableSection onClick={toggleSpecificTransparencyRisk}>
+            <TitleInfoSec onClick={toggleSpecificTransparencyRisk}>
               <h2>Specific Transparency risk</h2>
-            </ExpandableSection>
+            </TitleInfoSec>
           )}
 
         {specificTransparencyRiskExpanded && (
@@ -354,9 +354,9 @@ export default function AssessmentResult() {
         )}
 
         {resultAssessment?.gpai && (
-          <ExpandableSection onClick={toggleGpaiExpand}>
+          <TitleInfoSec onClick={toggleGpaiExpand}>
             <h2>How are general-purpose AI models being regulated?</h2>
-          </ExpandableSection>
+          </TitleInfoSec>
         )}
 
         {gpaiExpanded && (
@@ -422,9 +422,9 @@ export default function AssessmentResult() {
           !hasHighRisk &&
           !resultAssessment?.specificTransparencyRisk &&
           !resultAssessment.gpai && (
-            <ExpandableSection onClick={toggleMinimalRiskExpand}>
+            <TitleInfoSec onClick={toggleMinimalRiskExpand}>
               <h2>Voluntary Obligations</h2>
-            </ExpandableSection>
+            </TitleInfoSec>
           )}
 
         {minimalRiskExpanded && (
