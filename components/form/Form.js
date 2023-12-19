@@ -142,6 +142,7 @@ export function Form({ handleAssessmentOperation, defaultData }) {
         <input
           type="text"
           name="title"
+          autocomplete="off"
           value={formData.title}
           onChange={handleInputChange}
           required
@@ -152,6 +153,7 @@ export function Form({ handleAssessmentOperation, defaultData }) {
         <input
           type="text"
           name="editor"
+          autocomplete="off"
           value={formData.editor}
           onChange={handleInputChange}
         />
@@ -161,6 +163,7 @@ export function Form({ handleAssessmentOperation, defaultData }) {
         <input
           type="text"
           name="company"
+          autocomplete="off"
           value={formData.company}
           onChange={handleInputChange}
         />
@@ -170,6 +173,7 @@ export function Form({ handleAssessmentOperation, defaultData }) {
         <input
           type="text"
           name="status"
+          autocomplete="off"
           value={formData.status}
           onChange={handleInputChange}
         />
