@@ -92,7 +92,6 @@ export default function HomePage() {
     return;
   }
 
-  //Filter Funktion
   function changeSearchTerm(newSearchTerm) {
     setSearchTerm(newSearchTerm);
   }
@@ -102,31 +101,29 @@ export default function HomePage() {
   }
 
   return (
-    <>
-      <StyledContent>
-        {assessments.length === 0 && <BackgroundAnimation />}
-        {assessments.length > 0 ? (
+    <StyledContent>
+      {assessments.length === 0 && <BackgroundAnimation />}
+      {assessments.length > 0 ? (
+        <>
+          <SearchAssessment
+            onFilter={changeSearchTerm}
+            onOverview={resetSearchTerm}
+          />
+          <StyledContentWithAssessments>
+            <AssessmentList searchFilter={searchTerm} />
+          </StyledContentWithAssessments>
+        </>
+      ) : (
+        <StyledContentWithoutAssessments>
           <>
-            <SearchAssessment
-              onFilter={changeSearchTerm}
-              onOverview={resetSearchTerm}
-            />
-            <StyledContentWithAssessments>
-              <AssessmentList searchFilter={searchTerm} />
-            </StyledContentWithAssessments>
+            <StyledMessage>
+              Please add a new assessment using the button below in the right
+              corner.
+            </StyledMessage>
           </>
-        ) : (
-          <StyledContentWithoutAssessments>
-            <>
-              <StyledMessage>
-                Please add a new assessment using the button below in the right
-                corner.
-              </StyledMessage>
-            </>
-          </StyledContentWithoutAssessments>
-        )}
-        <StyledLink href="/create">Add Assessment</StyledLink>
-      </StyledContent>
-    </>
+        </StyledContentWithoutAssessments>
+      )}
+      <StyledLink href="/create">Add Assessment</StyledLink>
+    </StyledContent>
   );
 }
