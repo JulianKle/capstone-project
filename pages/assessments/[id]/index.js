@@ -182,6 +182,14 @@ export default function AssessmentResult() {
           </DetailParagraph>
         )}
 
+        {resultAssessment?.status ? (
+          <DetailParagraph>Status: {resultAssessment.status}</DetailParagraph>
+        ) : (
+          <DetailParagraph>
+            Status: Please add the data via the edit-button in the form.
+          </DetailParagraph>
+        )}
+
         {resultAssessment.cognitiveBehavior ||
         resultAssessment.socialScoring ||
         resultAssessment.biometricIdentification ? (

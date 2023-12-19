@@ -6,8 +6,8 @@ import useSWR from "swr";
 import { useRouter } from "next/router.js";
 
 const StyledContent = styled.div`
-  padding-top: 1.5cm; /* Abstand zum Header */
-  padding-bottom: 2rem; /* Ändere die Höhe nach Bedarf, um Platz für den Footer zu schaffen */
+  padding-top: 3.5rem; /* Abstand zum Header */
+  padding-bottom: 3.5rem; /* Ändere die Höhe nach Bedarf, um Platz für den Footer zu schaffen */
 `;
 
 const fadeIn = keyframes`
