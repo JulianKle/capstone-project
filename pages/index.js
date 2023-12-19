@@ -4,6 +4,7 @@ import { AssessmentList } from "@/components/assessmentList/AssessmentList";
 import { SearchAssessment } from "@/components/searchAssessment/SearchAssessment";
 import useSWR from "swr";
 import { useRouter } from "next/router.js";
+import { useState } from "react";
 
 const StyledContent = styled.div`
   padding-top: 3.5rem; /* Abstand zum Header */
@@ -74,13 +75,10 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export default function HomePage({
-  changeSearchTerm,
-  resetSearchTerm,
-  searchTerm,
-}) {
+export default function HomePage() {
   const router = useRouter();
   const { data: assessments, isLoading } = useSWR("/api/assessments");
+  const [searchTerm, setSearchTerm] = useState("");
 
   if (isLoading) {
     return (
@@ -94,11 +92,14 @@ export default function HomePage({
     return;
   }
 
-  const filteredAssessments = searchTerm
-    ? assessments.filter((assessment) =>
-        assessment.title.toLowerCase().includes(searchTerm)
-      )
-    : assessments;
+  //Filter Funktion
+  function changeSearchTerm(newSearchTerm) {
+    setSearchTerm(newSearchTerm);
+  }
+
+  function resetSearchTerm() {
+    setSearchTerm(null);
+  }
 
   return (
     <>
@@ -111,7 +112,7 @@ export default function HomePage({
               onOverview={resetSearchTerm}
             />
             <StyledContentWithAssessments>
-              <AssessmentList assessments={filteredAssessments} />
+              <AssessmentList searchFilter={searchTerm} />
             </StyledContentWithAssessments>
           </>
         ) : (
