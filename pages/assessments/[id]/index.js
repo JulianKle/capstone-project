@@ -5,8 +5,8 @@ import useSWR from "swr";
 import Link from "next/link";
 
 const StyledContent = styled.div`
-  padding-top: 1.5cm; /* Abstand zum Header */
-  padding-bottom: 1.5cm; /* Ändere die Höhe nach Bedarf, um Platz für den Footer zu schaffen */
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
 `;
 
 const ExpandableSection = styled.div`
