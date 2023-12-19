@@ -70,7 +70,7 @@ function getColorCode(assessment) {
   }
 }
 
-export function AssessmentList() {
+export function AssessmentList({ searchFilter }) {
   const router = useRouter();
   const { data: assessments, isLoading } = useSWR("/api/assessments");
 
@@ -82,9 +82,15 @@ export function AssessmentList() {
     return;
   }
 
+  const displayAssessments = searchFilter
+    ? assessments.filter((assessment) =>
+        assessment.title.toLowerCase().includes(searchFilter.toLowerCase())
+      )
+    : assessments;
+
   return (
     <>
-      {assessments.map((assessment) => (
+      {displayAssessments.map((assessment) => (
         <CardSection
           key={assessment._id}
           style={{ backgroundColor: getColorCode(assessment) }}
