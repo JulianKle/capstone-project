@@ -70,7 +70,7 @@ function getColorCode(assessment) {
   }
 }
 
-export function AssessmentList({ onEditAssessment, onDeleteAssessment }) {
+export function AssessmentList() {
   const router = useRouter();
   const { data: assessments, isLoading } = useSWR("/api/assessments");
 
@@ -116,9 +116,6 @@ export function AssessmentList({ onEditAssessment, onDeleteAssessment }) {
             </p>
           ) : null}
 
-          <button onClick={() => onDeleteAssessment(assessment._id)}>
-            Delete
-          </button>
           <Link href={`/assessments/${assessment._id}`}>
             <button>Details</button>
           </Link>

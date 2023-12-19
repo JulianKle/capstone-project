@@ -49,7 +49,7 @@ const DetailsSection = styled.div`
   padding-top: 15px;
 `;
 
-const Button = styled.button`
+const ButtonDelete = styled.button`
   padding: 0.7rem;
   font-size: 1.2rem;
   background-color: #61dafb;
@@ -58,7 +58,25 @@ const Button = styled.button`
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 0.9rem;
+  margin-top: 0.8rem;
+  margin-left: 0.5rem;
+
+  &:hover {
+    background-color: #38a169;
+  }
+`;
+
+const ButtonEdit = styled.button`
+  padding: 0.7rem;
+  font-size: 1.2rem;
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 0.8rem;
+  margin-right: 0.5rem;
 
   &:hover {
     background-color: #38a169;
@@ -101,6 +119,14 @@ export default function AssessmentResult() {
 
   if (error) return <div>Error loading assessment</div>;
   if (!resultAssessment) return <div>Loading...</div>;
+
+  //DELETE Request
+  async function deleteAssessment() {
+    await fetch(`/api/assessments/${id}`, {
+      method: "DELETE",
+    });
+    router.push("/");
+  }
 
   //State and Function for Expand Sections
 
@@ -156,6 +182,14 @@ export default function AssessmentResult() {
           </DetailParagraph>
         )}
 
+        {resultAssessment?.status ? (
+          <DetailParagraph>Status: {resultAssessment.status}</DetailParagraph>
+        ) : (
+          <DetailParagraph>
+            Status: Please add the data via the edit-button in the form.
+          </DetailParagraph>
+        )}
+
         {resultAssessment.cognitiveBehavior ||
         resultAssessment.socialScoring ||
         resultAssessment.biometricIdentification ? (
@@ -181,8 +215,10 @@ export default function AssessmentResult() {
         ) : null}
 
         <Link href={`/assessments/${resultAssessment._id}/edit`}>
-          <Button>Edit</Button>
+          <ButtonEdit>Edit</ButtonEdit>
         </Link>
+
+        <ButtonDelete onClick={deleteAssessment}>Delete</ButtonDelete>
 
         <Title>Info-Sec:</Title>
         {hasUnacceptableRisk && (

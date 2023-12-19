@@ -9,14 +9,6 @@ const fetcher = (url) => fetch(url).then((response) => response.json());
 export default function App({ Component, pageProps }) {
   const [searchTerm, setSearchTerm] = useState("");
 
-  function handleDeleteAssessment(id) {
-    setAssessments(
-      assessments.filter((assessment) => {
-        return assessment.id !== id;
-      })
-    );
-  }
-
   //Filter Funktion
   function changeSearchTerm(newSearchTerm) {
     setSearchTerm(newSearchTerm);
@@ -33,7 +25,6 @@ export default function App({ Component, pageProps }) {
         <GlobalStyle />
         <Component
           {...pageProps}
-          handleDeleteAssessment={handleDeleteAssessment}
           changeSearchTerm={changeSearchTerm}
           resetSearchTerm={resetSearchTerm}
           searchTerm={searchTerm}
