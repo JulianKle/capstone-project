@@ -29,6 +29,13 @@ const DetailContainer = styled.div`
 const SubSection = styled.div`
   margin-left: 10px;
   margin-right: 10px;
+  ul {
+    color: white; /* Weißer Text für die ul (Listen) */
+    padding-left: 1.5rem;
+  }
+  li {
+    margin-bottom: 0.2rem;
+  }
 `;
 
 const Title = styled.h1`
@@ -37,7 +44,7 @@ const Title = styled.h1`
 `;
 
 const DetailParagraph = styled.p`
-  ffont-size: 18px;
+  font-size: 18px;
   margin-bottom: 8px;
   text-align: justify;
   color: white;
