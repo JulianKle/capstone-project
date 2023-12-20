@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import useSWR from "swr";
 import { useRouter } from "next/router.js";
+import { DetailCardButton } from "../StyledButtons";
 
 export const CardSection = styled.section`
   display: flex;
@@ -30,22 +31,6 @@ export const CardSection = styled.section`
   li {
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
-  }
-
-  button {
-    margin-top: 0.9rem;
-    padding: 0.7rem;
-    font-size: 1.2rem;
-    background-color: #61dafb;
-    color: #282c34;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: #38a169;
-    }
   }
 `;
 
@@ -123,7 +108,7 @@ export function AssessmentList({ searchFilter }) {
           ) : null}
 
           <Link href={`/assessments/${assessment._id}`}>
-            <button>Details</button>
+            <DetailCardButton>Details</DetailCardButton>
           </Link>
         </CardSection>
       ))}

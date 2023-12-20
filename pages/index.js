@@ -1,11 +1,11 @@
 import styled, { keyframes } from "styled-components";
-import Link from "next/link";
 import { AssessmentList } from "@/components/assessmentList/AssessmentList";
 import { SearchAssessment } from "@/components/searchAssessment/SearchAssessment";
 import useSWR from "swr";
 import { useRouter } from "next/router.js";
 import { useState } from "react";
 import { StyledContent } from "@/components/StyledContent";
+import { NewAssessmentLink } from "@/components/StyledLinks";
 
 const fadeIn = keyframes`
   from {
@@ -50,25 +50,6 @@ const StyledMessage = styled.p`
   font-size: 1.8rem;
   color: #282c34;
   margin-top: 1.7rem;
-`;
-
-const StyledLink = styled(Link)`
-  position: fixed;
-  bottom: 4rem;
-  right: 0.2rem;
-  padding: 0.5rem 0.3rem;
-  font-size: 1rem;
-  background-color: #61dafb;
-  color: #282c34;
-  text-decoration: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  z-index: 2;
-
-  &:hover {
-    background-color: #38a169;
-  }
 `;
 
 export default function HomePage() {
@@ -119,7 +100,7 @@ export default function HomePage() {
           </>
         </StyledContentWithoutAssessments>
       )}
-      <StyledLink href="/create">Add Assessment</StyledLink>
+      <NewAssessmentLink href="/create">Add Assessment</NewAssessmentLink>
     </StyledContent>
   );
 }

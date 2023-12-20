@@ -1,5 +1,6 @@
 // SearchAssessment.js
 import styled from "styled-components";
+import { SearchButton, BackToOverviewButton } from "../StyledButtons";
 
 const StyledSearchForm = styled.form`
   display: flex;
@@ -33,40 +34,6 @@ const SearchField = styled.article`
     &:focus {
       border-color: #38a169;
     }
-  }
-`;
-
-const SearchButton = styled.button`
-  flex: 0 0 40%;
-  margin-top: 1.6rem;
-  padding: 0.6rem;
-  font-size: 0.9rem;
-  background-color: #61dafb;
-  color: #282c34;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #38a169;
-  }
-`;
-
-const BackToOverviewButton = styled.button`
-  width: 100%;
-  margin-top: 0.5rem;
-  padding: 0.5rem;
-  font-size: 1rem;
-  background-color: #61dafb;
-  color: #282c34;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #38a169;
   }
 `;
 

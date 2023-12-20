@@ -1,23 +1,9 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import { Form } from "@/components/form/Form.js";
-import styled from "styled-components";
-import { StyledLink } from "@/components/StyledLink";
+import { CreateEditLink } from "@/components/StyledLinks";
 import { StyledContent } from "@/components/StyledContent";
-
-const CreateContainer = styled.section`
-  padding: 1rem;
-  background-color: #1e2124;
-  color: #61dafb;
-  position: relative;
-  margin-left: 0.8rem;
-  margin-right: 1rem;
-`;
-
-const CreateTitle = styled.h2`
-  font-size: 1.7rem;
-  margin-bottom: 0.8rem;
-`;
+import { Container, Title } from "@/components/StyledCreateEditPage";
 
 export default function CreateAssessmentPage() {
   const router = useRouter();
@@ -40,14 +26,14 @@ export default function CreateAssessmentPage() {
 
   return (
     <StyledContent>
-      <CreateContainer>
-        <CreateTitle id="add-assessment">Add Assessment</CreateTitle>
-        <StyledLink href="/">Back </StyledLink>
+      <Container>
+        <Title id="add-assessment">Add Assessment</Title>
+        <CreateEditLink href="/">Back </CreateEditLink>
         <Form
           handleAssessmentOperation={newAssessment}
           formName={"add-assessment"}
         />
-      </CreateContainer>
+      </Container>
     </StyledContent>
   );
 }

@@ -3,8 +3,9 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import useSWR from "swr";
 import Link from "next/link";
-import { ButtonDelete, ButtonEdit } from "@/components/StyledEditDeleteButton";
+import { ButtonDelete, ButtonEdit } from "@/components/StyledButtons";
 import { StyledContent } from "@/components/StyledContent";
+import { DetailPageLink } from "@/components/StyledLinks";
 
 const DetailContainer = styled.section`
   padding: 1.2rem;
@@ -48,26 +49,6 @@ const SubSection = styled.article`
   }
   li {
     margin-bottom: 0.2rem;
-  }
-`;
-
-const StyledLink = styled(Link)`
-  position: absolute;
-  top: 4.5rem;
-  right: 1.5rem;
-  padding: 0.8rem;
-  font-size: 1.2rem;
-  background-color: #61dafb;
-  color: #282c34;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-decoration: none;
-
-  &:hover {
-    background-color: #38a169;
-    text-decoration: underline;
   }
 `;
 
@@ -131,7 +112,7 @@ export default function AssessmentResult() {
   return (
     <StyledContent>
       <DetailContainer>
-        <StyledLink href="/">Back</StyledLink>
+        <DetailPageLink href="/">Back</DetailPageLink>
         <Title>Details for: {resultAssessment?.title}</Title>
 
         {resultAssessment?.editor ? (
