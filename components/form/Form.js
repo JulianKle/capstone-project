@@ -8,7 +8,7 @@ const StyledForm = styled.form`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 1.4rem;
   background-color: #1e2124;
   color: #61dafb;
   margin-left: 0.7rem;
@@ -19,7 +19,7 @@ const FormField = styled.article`
   margin-bottom: 1rem;
 
   label {
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
     font-size: 1.2rem;
     display: block;
   }
@@ -32,24 +32,15 @@ const FormField = styled.article`
     padding-bottom: 0.6rem;
   }
 
-  .checkbox-items {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
   .checkbox-item {
     display: flex;
     align-items: center;
-    margin-right: 16px;
+    margin-right: 1rem;
   }
 
   input[type="checkbox"] {
     width: auto;
-    margin-right: 8px;
-  }
-
-  .checkbox-label {
-    font-size: 1.2rem;
+    margin-right: 0.6rem;
   }
 
   input {
@@ -61,14 +52,6 @@ const FormField = styled.article`
     background-color: #282c34;
     color: #61dafb;
     outline: none;
-
-    .group-label {
-      font-size: 1.4rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #61dafb;
-      padding-bottom: 0.8rem;
-    }
 
     &:focus {
       border-color: #38a169;
@@ -142,7 +125,7 @@ export function Form({ handleAssessmentOperation, defaultData }) {
         <input
           type="text"
           name="title"
-          autocomplete="off"
+          autoComplete="off"
           value={formData.title}
           onChange={handleInputChange}
           required
@@ -153,7 +136,7 @@ export function Form({ handleAssessmentOperation, defaultData }) {
         <input
           type="text"
           name="editor"
-          autocomplete="off"
+          autoComplete="off"
           value={formData.editor}
           onChange={handleInputChange}
         />
@@ -163,7 +146,7 @@ export function Form({ handleAssessmentOperation, defaultData }) {
         <input
           type="text"
           name="company"
-          autocomplete="off"
+          autoComplete="off"
           value={formData.company}
           onChange={handleInputChange}
         />
@@ -173,7 +156,7 @@ export function Form({ handleAssessmentOperation, defaultData }) {
         <input
           type="text"
           name="status"
-          autocomplete="off"
+          autoComplete="off"
           value={formData.status}
           onChange={handleInputChange}
         />
