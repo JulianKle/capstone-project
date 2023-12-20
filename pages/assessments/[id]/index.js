@@ -4,55 +4,54 @@ import styled from "styled-components";
 import useSWR from "swr";
 import Link from "next/link";
 
-const StyledContent = styled.div`
+const StyledContent = styled.section`
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
 `;
 
-const DetailContainer = styled.div`
-  padding: 20px;
+const DetailContainer = styled.section`
+  padding: 1.2rem;
   background-color: #1e2124;
   color: #61dafb;
 `;
 
-const SubSection = styled.div`
-  margin-left: 10px;
-  margin-right: 10px;
+const Title = styled.h1`
+  font-size: 1.7rem;
+  margin-bottom: 0.8rem;
+`;
+
+const TitleInfoSec = styled.h2`
+  font-size: 1.5rem;
+  margin-bottom: 0.7rem;
+  color: white;
+  cursor: pointer;
+  margin-top: 1rem;
+  border-bottom: 2px solid #61dafb;
+  padding-bottom: 1rem;
+`;
+
+const DetailParagraph = styled.p`
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+  text-align: justify;
+  color: white;
+`;
+
+const DetailsSection = styled.article`
+  margin-top: 0.9rem;
+  border-top: 2px solid #61dafb;
+`;
+
+const SubSection = styled.article`
+  margin-left: 0.8rem;
+  margin-right: 0.8rem;
   ul {
-    color: white; /* Weißer Text für die ul (Listen) */
+    color: white;
     padding-left: 1.5rem;
   }
   li {
     margin-bottom: 0.2rem;
   }
-`;
-
-const Title = styled.h1`
-  font-size: 24px;
-  margin-bottom: 10px;
-`;
-
-const TitleInfoSec = styled.h2`
-  font-size: 1rem;
-  margin-bottom: 10px;
-  color: white;
-  cursor: pointer;
-  margin-top: 15px;
-  border-bottom: 2px solid #61dafb;
-  padding-bottom: 10px;
-`;
-
-const DetailParagraph = styled.p`
-  font-size: 18px;
-  margin-bottom: 8px;
-  text-align: justify;
-  color: white;
-`;
-
-const DetailsSection = styled.div`
-  margin-top: 15px;
-  border-top: 2px solid #61dafb;
-  padding-top: 15px;
 `;
 
 const ButtonDelete = styled.button`
@@ -230,7 +229,7 @@ export default function AssessmentResult() {
         <Title>Info-Sec:</Title>
         {hasUnacceptableRisk && (
           <TitleInfoSec onClick={toggleUnacceptableRiskExpand}>
-            <h2>Unacceptable Risks</h2>
+            Unacceptable Risks
           </TitleInfoSec>
         )}
 
@@ -280,7 +279,7 @@ export default function AssessmentResult() {
           resultAssessment?.useInCertainArea) &&
           !hasUnacceptableRisk && (
             <TitleInfoSec onClick={toggleHighRiskExpand}>
-              <h2>What are the obligations for high-risk AI systems?</h2>
+              What are the obligations for high-risk AI systems?
             </TitleInfoSec>
           )}
 
@@ -333,7 +332,7 @@ export default function AssessmentResult() {
           !hasUnacceptableRisk &&
           !hasHighRisk && (
             <TitleInfoSec onClick={toggleSpecificTransparencyRisk}>
-              <h2>Specific Transparency risk</h2>
+              Specific Transparency risk
             </TitleInfoSec>
           )}
 
@@ -355,7 +354,7 @@ export default function AssessmentResult() {
 
         {resultAssessment?.gpai && (
           <TitleInfoSec onClick={toggleGpaiExpand}>
-            <h2>How are general-purpose AI models being regulated?</h2>
+            How are general-purpose AI models being regulated?
           </TitleInfoSec>
         )}
 
@@ -423,7 +422,7 @@ export default function AssessmentResult() {
           !resultAssessment?.specificTransparencyRisk &&
           !resultAssessment.gpai && (
             <TitleInfoSec onClick={toggleMinimalRiskExpand}>
-              <h2>Voluntary Obligations</h2>
+              Voluntary Obligations
             </TitleInfoSec>
           )}
 

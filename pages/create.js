@@ -47,7 +47,7 @@ export default function CreateAssessmentPage() {
   const router = useRouter();
   const { mutate } = useSWR("/api/assessments/");
 
-  async function onSubmit(formData) {
+  async function newAssessment(formData) {
     const response = await fetch("/api/assessments", {
       method: "POST",
       headers: {
@@ -68,7 +68,7 @@ export default function CreateAssessmentPage() {
         <CreateTitle id="add-assessment">Add Assessment</CreateTitle>
         <StyledLink href="/">Back </StyledLink>
         <Form
-          handleAssessmentOperation={onSubmit}
+          handleAssessmentOperation={newAssessment}
           formName={"add-assessment"}
         />
       </CreateContainer>

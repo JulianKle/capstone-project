@@ -6,9 +6,9 @@ import useSWR from "swr";
 import { useRouter } from "next/router.js";
 import { useState } from "react";
 
-const StyledContent = styled.div`
-  padding-top: 3.5rem; /* Abstand zum Header */
-  padding-bottom: 3.5rem; /* Ändere die Höhe nach Bedarf, um Platz für den Footer zu schaffen */
+const StyledContent = styled.section`
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
 `;
 
 const fadeIn = keyframes`
@@ -20,7 +20,7 @@ const fadeIn = keyframes`
   }
 `;
 
-const BackgroundAnimation = styled.div`
+const BackgroundAnimation = styled.section`
   position: fixed;
   top: 0;
   left: 0;
@@ -31,14 +31,14 @@ const BackgroundAnimation = styled.div`
   animation: ${fadeIn} 2s ease-in-out;
 `;
 
-const StyledContentWithAssessments = styled.div`
+const StyledContentWithAssessments = styled.section`
   position: relative;
   padding-top: 2rem;
   text-align: center;
   z-index: 1;
 `;
 
-const StyledContentWithoutAssessments = styled.div`
+const StyledContentWithoutAssessments = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -51,24 +51,24 @@ const StyledContentWithoutAssessments = styled.div`
 `;
 
 const StyledMessage = styled.p`
-  font-size: 24px;
+  font-size: 1.8rem;
   color: #282c34;
-  margin-top: 20px;
+  margin-top: 1.7rem;
 `;
 
 const StyledLink = styled(Link)`
   position: fixed;
-  bottom: 70px; /* Verhindere, dass der Button den Footer überlappt */
-  right: 5px;
-  padding: 8px 4px;
-  font-size: 16px;
+  bottom: 4rem;
+  right: 0.2rem;
+  padding: 0.5rem 0.3rem;
+  font-size: 1rem;
   background-color: #61dafb;
   color: #282c34;
   text-decoration: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
-  z-index: 2; /* Stelle sicher, dass der Button über dem Footer liegt */
+  z-index: 2;
 
   &:hover {
     background-color: #38a169;
