@@ -1,15 +1,11 @@
-import Link from "next/link.js";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import { Form } from "@/components/form/Form.js";
 import styled from "styled-components";
+import { StyledLink } from "@/components/StyledLink";
+import { StyledContent } from "@/components/StyledContent";
 
-const StyledContent = styled.section`
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
-`;
-
-const CreateContainer = styled.div`
+const CreateContainer = styled.section`
   padding: 1rem;
   background-color: #1e2124;
   color: #61dafb;
@@ -21,26 +17,6 @@ const CreateContainer = styled.div`
 const CreateTitle = styled.h2`
   font-size: 1.7rem;
   margin-bottom: 0.8rem;
-`;
-
-const StyledLink = styled(Link)`
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  padding: 0.8rem;
-  font-size: 1.2rem;
-  background-color: #61dafb;
-  color: #282c34;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-decoration: none;
-
-  &:hover {
-    background-color: #38a169;
-    text-decoration: underline;
-  }
 `;
 
 export default function CreateAssessmentPage() {

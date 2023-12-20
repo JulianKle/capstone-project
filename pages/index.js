@@ -5,11 +5,7 @@ import { SearchAssessment } from "@/components/searchAssessment/SearchAssessment
 import useSWR from "swr";
 import { useRouter } from "next/router.js";
 import { useState } from "react";
-
-const StyledContent = styled.section`
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
-`;
+import { StyledContent } from "@/components/StyledContent";
 
 const fadeIn = keyframes`
   from {

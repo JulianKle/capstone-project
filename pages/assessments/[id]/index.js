@@ -3,11 +3,8 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import useSWR from "swr";
 import Link from "next/link";
-
-const StyledContent = styled.section`
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
-`;
+import { ButtonDelete, ButtonEdit } from "@/components/StyledEditDeleteButton";
+import { StyledContent } from "@/components/StyledContent";
 
 const DetailContainer = styled.section`
   padding: 1.2rem;
@@ -51,41 +48,6 @@ const SubSection = styled.article`
   }
   li {
     margin-bottom: 0.2rem;
-  }
-`;
-
-const ButtonDelete = styled.button`
-  padding: 0.7rem;
-  font-size: 1.2rem;
-  background-color: #61dafb;
-  color: #282c34;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 0.8rem;
-  margin-left: 0.5rem;
-
-  &:hover {
-    background-color: #38a169;
-  }
-`;
-
-const ButtonEdit = styled.button`
-  padding: 0.7rem;
-  font-size: 1.2rem;
-  background-color: #61dafb;
-  color: #282c34;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 0.8rem;
-  margin-right: 0.5rem;
-  margin-bottom: 1rem;
-
-  &:hover {
-    background-color: #38a169;
   }
 `;
 
