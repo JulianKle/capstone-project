@@ -100,7 +100,7 @@ export default function HomePage() {
           </>
         </StyledContentWithoutAssessments>
       )}
-      <NewAssessmentLink href="/create">Add Assessment</NewAssessmentLink>
+      <NewAssessmentLink href="/create">Add Assessment </NewAssessmentLink>
     </StyledContent>
   );
 }

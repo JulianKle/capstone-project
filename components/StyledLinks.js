@@ -1,7 +1,7 @@
 import Link from "next/link.js";
 import styled from "styled-components";
 
-export const BaseLink = styled(Link)`
+const BaseLink = styled(Link)`
   background-color: #61dafb;
   color: #282c34;
   border: none;

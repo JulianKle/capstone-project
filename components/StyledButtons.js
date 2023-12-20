@@ -13,18 +13,11 @@ const BaseButton = styled.button`
   }
 `;
 
-export const ButtonEdit = styled(BaseButton)`
+export const ButtonForm = styled(BaseButton)`
   padding: 0.7rem;
   font-size: 1.2rem;
   margin-top: 0.8rem;
   margin-right: 0.5rem;
-`;
-
-export const ButtonDelete = styled(BaseButton)`
-  padding: 0.7rem;
-  font-size: 1.2rem;
-  margin-top: 0.8rem;
-  margin-left: 0.5rem;
 `;
 
 export const SearchButton = styled(BaseButton)`

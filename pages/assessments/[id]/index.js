@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import useSWR from "swr";
 import Link from "next/link";
-import { ButtonDelete, ButtonEdit } from "@/components/StyledButtons";
+import { ButtonForm } from "@/components/StyledButtons";
 import { StyledContent } from "@/components/StyledContent";
 import { DetailPageLink } from "@/components/StyledLinks";
 
@@ -164,10 +164,10 @@ export default function AssessmentResult() {
         ) : null}
 
         <Link href={`/assessments/${resultAssessment._id}/edit`}>
-          <ButtonEdit>Edit</ButtonEdit>
+          <ButtonForm>Edit</ButtonForm>
         </Link>
 
-        <ButtonDelete onClick={deleteAssessment}>Delete</ButtonDelete>
+        <ButtonForm onClick={deleteAssessment}>Delete</ButtonForm>
 
         <Title>Info-Sec:</Title>
         {hasUnacceptableRisk && (
