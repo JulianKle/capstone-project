@@ -1,7 +1,7 @@
 import Link from "next/link.js";
 import styled from "styled-components";
 
-const BaseLink = styled(Link)`
+export const BaseLink = styled(Link)`
   background-color: #61dafb;
   color: #282c34;
   border: none;
@@ -22,7 +22,7 @@ export const CreateEditLink = styled(BaseLink)`
   padding: 0.8rem;
   font-size: 1.2rem;
 `;
-export const NewAssessmentLink = styled(BaseLink)`
+export const NewLink = styled(BaseLink)`
   position: fixed;
   bottom: 4rem;
   right: 0.2rem;

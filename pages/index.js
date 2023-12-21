@@ -5,7 +5,7 @@ import useSWR from "swr";
 import { useRouter } from "next/router.js";
 import { useState } from "react";
 import { StyledContent } from "@/components/StyledContent";
-import { NewAssessmentLink } from "@/components/StyledLinks";
+import { NewLink } from "@/components/StyledLinks";
 
 const fadeIn = keyframes`
   from {
@@ -43,7 +43,6 @@ const StyledContentWithoutAssessments = styled.section`
   min-height: 100vh;
   padding: 2rem;
   text-align: center;
-  z-index: 1;
 `;
 
 const StyledMessage = styled.p`
@@ -79,8 +78,19 @@ export default function HomePage() {
 
   return (
     <StyledContent>
-      {assessments.length === 0 && <BackgroundAnimation />}
-      {assessments.length > 0 ? (
+      {assessments.length === 0 ? (
+        <>
+          <BackgroundAnimation />
+          <StyledContentWithoutAssessments>
+            <>
+              <StyledMessage>
+                Please add a new assessment using the button below in the right
+                corner.
+              </StyledMessage>
+            </>
+          </StyledContentWithoutAssessments>
+        </>
+      ) : (
         <>
           <SearchAssessment
             onFilter={changeSearchTerm}
@@ -90,17 +100,9 @@ export default function HomePage() {
             <AssessmentList searchFilter={searchTerm} />
           </StyledContentWithAssessments>
         </>
-      ) : (
-        <StyledContentWithoutAssessments>
-          <>
-            <StyledMessage>
-              Please add a new assessment using the button below in the right
-              corner.
-            </StyledMessage>
-          </>
-        </StyledContentWithoutAssessments>
       )}
-      <NewAssessmentLink href="/create">Add Assessment </NewAssessmentLink>
+
+      <NewLink href="/create">Add Assessment</NewLink>
     </StyledContent>
   );
 }
