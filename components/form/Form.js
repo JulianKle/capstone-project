@@ -235,8 +235,15 @@ export function Form({ handleAssessmentOperation, defaultData }) {
         <article>
           <p className="group-label">Risk of manipulation</p>
           <label htmlFor="specificTransparencyRisk">
-            Will there be a risk of manipulation for the user of the system
-            (e.g. when using chatbots)?
+            Will there be a risk of manipulation for the user of the system?
+            E.g: Is your system intended to interact with natural persons?; Is
+            your system a biometric categorization system (not using sensitive
+            characteristics like gender, ethnicity, nationality, religion)?; Is
+            your system an emotion recognition system?; Does your system
+            generate or manipulate image, audio or video content that
+            appreciably resembles existing persons, objects, places or other
+            entities or events and would falsely appear to a person to be
+            authentic or truthful (Deep Fake)?
           </label>
           <input
             id="specificTransparencyRisk"

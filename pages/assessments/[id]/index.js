@@ -235,28 +235,105 @@ export default function AssessmentResult() {
               </DetailParagraph>
               <DetailParagraph>
                 For high-risk AI systems, the proposal introduces obligations
-                such as ensuring that AI systems:
+                such as ensuring that providers of high risk systems are
+                compliant with all requirements of Art. 8-15 and any necessary
+                corrective action before placing on the market/ putting in to
+                service:
               </DetailParagraph>
               <ul>
-                <li>Undergo a conformity assessment by a notified body;</li>
-                <li>Meet high-quality data sets to minimize biases;</li>
                 <li>
-                  Are transparent and provide users with meaningful information;
+                  Risk management system, Art. 9 (continuous monitoring and
+                  evaluation);
                 </li>
-                <li>Have appropriate human oversight;</li>
+                <li>Data and data governance, Art. 10;</li>
+                <li>Technical documentation, Art. 11 (content in Annex IV);</li>
+                <li>Record-keeping obligations, Art. 12;</li>
                 <li>
-                  Meet specific requirements for documentation and
-                  record-keeping;
+                  Transparency and information obligation, Art. 13 (in
+                  particular instructions for use);
+                </li>
+                <li>Human supervision, Art. 14;</li>
+                <li>
+                  Accuracy, robustness, and cybersecurity, Art. 15 (high
+                  intersection with GDPR requirements);
                 </li>
                 <li>
-                  Adhere to specific requirements when providing information to
-                  users;
+                  Obligation for name/brand identification as well as contact
+                  information on AI system or packaging;
                 </li>
-                <li>Are subject to post-market surveillance obligations;</li>
+                <li>Quality management system, Art. 17;</li>
                 <li>
-                  Do not create or exacerbate bias, discrimination, or other
-                  harms.
+                  Retention of automatically generated protocols within the
+                  meaning of Art. 20 and other documents within the meaning of
+                  Art. 18;
                 </li>
+                <li>
+                  Ensuring the conformity assessment procedure concerned, Art.
+                  43;
+                </li>
+                <li>
+                  Ensuring awareness of the bias risks of high-risk AI systems;
+                </li>
+                <li>Providing the specifications on input data;</li>
+                <li>Obligation to register in the EU database, Art. 51;</li>
+                <li>
+                  Cooperation with national authorities and notified bodies;
+                </li>
+                <li>
+                  Monitoring of AI systems and obligation to report incidents
+                  and malfunctions, Art. 61 f.
+                </li>
+              </ul>
+              <DetailParagraph>
+                Also users of the system have to comply with the following set
+                of rules:
+              </DetailParagraph>
+              <ul>
+                <li>
+                  Use of the AI system according to the instructions for use;
+                </li>
+                <li>
+                  Delegation of human supervision to qualified persons as well
+                  as effectiveness monitoring of cybersecurity measures;
+                </li>
+                <li>
+                  AI in the workplace: consultation of employee representatives
+                  and employee information;
+                </li>
+                <li>
+                  Input data must correspond to the purpose of the AI system;
+                </li>
+                <li>
+                  Monitoring of the AI system on the basis of the instructions
+                  for use and, if necessary, obligation to inform the
+                  provider/dealer in the event of a risk as defined in Art. 65
+                  and, if necessary, suspension of use in the event of an
+                  incident/malfunction as defined in Art. 62.
+                </li>
+                <ul>
+                  <li>
+                    Tip: Establish a monitoring procedure including clear
+                    responsibilities for testing and reporting;
+                  </li>
+                  <li>Have alternative applications ready.</li>
+                </ul>
+                <li>
+                  If applicable, obligation to retain protocols (Be aware of
+                  possible deletion periods according to Art. 17 DSGVO!);
+                </li>
+                <li>
+                  If applicable, registration obligations within the meaning of
+                  Art. 51 (e.g. for authorities);
+                </li>
+                <li>
+                  If applicable, data protection impact assessment based on the
+                  information provided under Art. 13;
+                </li>
+                <li>
+                  Disclosure/information requirements on high-risk AI systems
+                  for decisions towards natural persons;
+                </li>
+                <li>Cooperation with national authorities.</li>
               </ul>
               <DetailParagraph>
                 In addition, certain uses of remote biometric identification
