@@ -28,6 +28,7 @@ export const NewLink = styled(BaseLink)`
   right: 0.2rem;
   padding: 0.5rem 0.3rem;
   font-size: 1rem;
+  z-index: 2;
 `;
 
 export const DetailPageLink = styled(BaseLink)`
